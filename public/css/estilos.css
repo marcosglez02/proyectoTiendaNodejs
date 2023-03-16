@@ -1,0 +1,33 @@
+footer{
+    background-color: #343a40;
+}
+footer i{
+    font-size: 2em;
+    margin: 0 0.5em;
+}
+footer li{
+    margin-top: 1em;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.textoPiePagina{
+    text-align: justify;
+}
+.fa-facebook:hover{
+    transition: all 0.5s ease-out;
+    color: #4267B2;
+    cursor: pointer;
+}
+.fa-twitter:hover{
+    transition: all 0.5s ease-out;
+    color: #00acee;
+    cursor: pointer;
+}
+.fa-instagram:hover{
+    transition: all 0.5s ease-out;
+    color: #C13584;
+    cursor: pointer;
+}
