@@ -13,6 +13,10 @@ a{
     text-decoration: none;
     color: white;
 }
+.tarjetas i{
+    margin: 0;
+    margin-right: 0.2em;
+}
 .textoPiePagina{
     text-align: justify;
 }
