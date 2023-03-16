@@ -3,12 +3,22 @@ const router = express.Router();
 const bodyParse = require("body-parser");
 
 router.get('/',(req,res)=>{
-    // res.send("<h1>Iniciamos con express</h1>")
-    res.render('index.html')
+    const valores={
+        titulo:"Inicio"
+       }
+        res.render('index.html',valores)
 });
 router.get('/carrito.html',(req,res)=>{
-    // res.send("<h1>Iniciamos con express</h1>")
-    res.render('carrito.html')
+   const valores={
+    titulo:"Carrito"
+   }
+    res.render('carrito.html',valores)
 });
 
+router.post('/carrito.html',(req,res)=>{
+    const valores={
+        titulo:"Carrito"
+       }
+        res.render('carrito.html',valores)
+});
 module.exports=router;
