@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="https://kit.fontawesome.com/ae606561a5.js" crossorigin="anonymous"></script>
+    <title><%=titulo%></title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <!--Poner imagen o logo de la empresa-->
+          <a class="navbar-brand" href="/"> <i class="fa-solid fa-bolt mx-2" ></i>Disfraces Trueno</a> 
+          <br>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#">Productos</a>
+              </li>
+        
+              <li class="nav-item">
+                <a class="nav-link" href="#">Promociones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Ventas</a>
+              </li>
+            </ul>
+            <form class="d-flex" action="carrito.html" method="post">
+              
+              <!--Icono de carrito-->
+              <button class="btn --bs-light-text mx-2 my-3" type="submit"><i class="fa-solid fa-cart-shopping"></i></button>
+             
+            </form>
+
+            <form action="" method="post">
+              <button class="btn --bs-light-text mx-2 my-3" type="submit"><i class="fa-solid fa-user"></i><br>Iniciar Sesión</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <script src="./css/bootstrap/dist/js/bootstrap.bundle.min.js" ></script>
+</body>
+</html>
