@@ -39,3 +39,18 @@ a{
 .fa-bolt{
     color: rgb(255, 238, 0);
 }
+
+.list-group.dropend .dropdown-toggle::after {
+    display: none;
+}
+.list-group.dropend.dropdown-end .dropdown-toggle::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1px;
+    transform: translateY(-50%) rotate(-90deg);
+    border: solid transparent;
+    border-width: 5px;
+    border-top-color: rgb(0, 0, 0);
+    text-align: left;
+}
