@@ -24,25 +24,22 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               
               <li class="nav-item">
-                <a class="nav-link" href="#">Productos</a>
+                <a class="nav-link <%if(titulo == 'Administrador'){%>active<%}%>" href="/admin/formulario">Productos</a>
               </li>
         
               <li class="nav-item">
-                <a class="nav-link" href="#">Promociones</a>
+                <a class="nav-link <%if(titulo == 'Promociones'){%>active<%}%>" href="/admin/promociones">Promociones</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Ventas</a>
+                <a class="nav-link <%if(titulo == 'Ventas'){%>active<%}%>" href="/admin/ventas">Ventas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <%if(titulo == 'Categorías'){%>active<%}%>" href="/admin/categorias">Categorías</a>
               </li>
             </ul>
-            <form class="d-flex" action="carrito.html" method="post">
-              
-              <!--Icono de carrito-->
-              <button class="btn --bs-light-text mx-2 my-3" type="submit"><i class="fa-solid fa-cart-shopping"></i></button>
-             
-            </form>
 
             <form action="" method="post">
-              <button class="btn --bs-light-text mx-2 my-3" type="submit"><i class="fa-solid fa-user"></i><br>Iniciar Sesión</button>
+              <button class="btn --bs-light-text mx-2 my-3" type="submit"><i class="fa-solid fa-user"></i><br>Cerrar sesión</button>
             </form>
           </div>
         </div>

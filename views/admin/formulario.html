@@ -1,1 +1,94 @@
 <%-include('partials/encabezado.html');%>
+<div class="container ">
+    <div class="row">
+        <div class="col-md-10 offset-md-1 p-4 mt-2 text-dark pt-4 rounded">
+
+            <form action="">
+                
+                <div class="form-group row mb-4">
+                    <div class="col-md-6">
+                        <label for="" class="col-form-label">Código del producto</label>
+                        <div class="input-group-text mb-3">
+                            <span class="input-group-text">#</span>
+                            <input type="text" name="" id="txtCodigo" placeholder="Introduce el código del producto"
+                                class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="" class="col-md-6 col-form-label">Precio</label>
+                        <div class="input-group-text mb-3">
+                            <span class="input-group-text">$</span>
+                            <input type="number" name="" id="txtPrecio" placeholder="Introduce el precio del producto"
+                                class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="txtEmail" class="col-md-2 col-form-label">Nombre del producto</label>
+                    <div class="col-md-10">
+                        <input type="text" name="" id="txtNombre" placeholder="Introduce el nombre"
+                            class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="" class="col-md-2 col-form-label">Descripción</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" id="txtDescripcion" rows="2"
+                            placeholder="Introduce una descripción breve" maxlength="125"></textarea>
+                    </div>
+
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="" class="col-md-2 col-form-label">Categoria</label>
+                    <div class="col">
+                        <select name="" id="" class="form-select">
+                            <option value="">ejemplo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="col-md-2 col-form-label">Selecciona una imagen</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="file" id="img" accept="image/png,image/jpeg">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <div class="col-12">
+                        <input class="form-control" type="text" name="url" id="url" readonly
+                        placeholder="URL de la imagen">
+                    </div>
+                    
+                </div>
+                <div class="form-group row mb-2 justify-content-center">
+                    <img id="imagenSeleccionada" src="">
+                </div>
+                <div class="form-group row mb-3">
+                    <div class="col-md-12" style="text-align: end;">
+                        <button type="reset" class="btn btn-outline-dark m-2 col-md-3"
+                            id="btnLimpiar">limpiar</button>
+                    </div>
+
+                </div>
+                <div class="form-group row mb-3">
+                    <h3 class="m-2">Selecciona una acción</h3>
+                    <div class="col-md-12">
+                        <button class="btn btn-outline-dark m-2" id="btnInsertar">Insertar</button>
+                        <button class="btn btn-outline-dark m-2" id="btnActualizar">Actualizar</button>
+                        <button class="btn btn-outline-dark m-2"
+                            id="btnEliminar">Habilitar/Deshabilitar</button>
+                        <button class="btn btn-outline-dark m-2" id="btnMostrar">Mostrar</button>
+                        <button class="btn btn-outline-dark m-2" id="btnMostrarTodos">Mostrar
+                            Todos</button>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+        <h2 class="mt-2" style="text-align: center;">Listado de productos</h2>
+
+    </div>
+</div>
+<table id="productos" class="table table-light table-hover table-bordered d-none mt-2 mb-0 caption-top">
+
+</table>

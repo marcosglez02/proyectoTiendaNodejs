@@ -1,6 +1,7 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const bodyParse = require("body-parser");
+import bodyParse from"body-parser";
+import request from "http";
 
 router.get('/',(req,res)=>{
     const valores={
@@ -9,11 +10,24 @@ router.get('/',(req,res)=>{
         res.render('index.html',valores)
 });
 
-router.get('/admin/formulario.html',(req,res)=>{
+router.get('/admin/formulario',(req,res)=>{
     const valores={
         titulo:"Administrador"
        }
         res.render('admin/formulario.html',valores)
+});
+
+router.get('/admin/promociones',(req,res)=>{
+    const valores={
+        titulo:"Promociones"
+       }
+        res.render('admin/promociones.html',valores)
+});
+router.get('/admin/ventas',(req,res)=>{
+    const valores={
+        titulo:"Ventas"
+       }
+        res.render('admin/ventas.html',valores)
 });
 
 router.get('/carrito.html',(req,res)=>{
@@ -29,4 +43,4 @@ router.post('/carrito.html',(req,res)=>{
        }
         res.render('carrito.html',valores)
 });
-module.exports=router;
+export default router;
