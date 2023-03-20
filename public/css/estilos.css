@@ -60,6 +60,56 @@ a{
     background-color: rgba(113, 227, 255, 0.466);
 }
 
-.hover-card:hover {
-    opacity: 0.8;
+.hover-card:hover img {
+    opacity: 0.5;
+}
+
+.hover-card:hover .text {
+    opacity: 1;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+
+.imagen {
+    position: relative;
+}
+
+.text {
+    color: black;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    font-style: italic;
+    position: absolute;
+    text-decoration: underline;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+@media (max-width: 576px) {
+    .card-text {
+        font-size: 0.875rem;
+    }
+
+    .text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 385px) {
+    .card-text {
+        font-size: 0.7rem;
+    }
+
+    .text {
+        font-size: 0.7rem;
+    }
 }
