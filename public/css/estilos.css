@@ -54,3 +54,12 @@ a{
     border-top-color: rgb(0, 0, 0);
     text-align: left;
 }
+
+.hover-card {
+    opacity: 1;
+    background-color: rgba(113, 227, 255, 0.466);
+}
+
+.hover-card:hover {
+    opacity: 0.8;
+}
