@@ -1,0 +1,48 @@
+<%-include('partials/encabezado.html');%>
+<div class="container">
+    <h1 class="text-center">Categorías</h1>
+
+    <form action="/insertar" method="post">
+        <div class="form-group row mb-4">
+            <label for="txtEmail" class="col-md-2 col-form-label">Nombre de la categoría</label>
+            <div class="col-md-10">
+                <input type="text" name="nombreCategoria" id="txtNombre" placeholder="Introduce el nombre" class="form-control" required>
+            </div>
+        </div>
+        <div class="text-end">
+            <button class="btn btn-success m-2" type="submit">
+                <i class="fa-solid fa-plus"></i>
+                Añadir categoría
+            </button>
+            <button type="reset" class="btn btn-dark m-2 col-md-3">Limpiar</button>
+        </div>
+    </form>
+    <h2 class="text-center mt-4">Todas las categorías</h2>
+    <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre categoria</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+    <% if(categorias){%>
+        <% for(let i=0;i<categorias.length;i++){%>
+            <tr>
+                <th scope="row"><%= (i + 1) %></th>
+                <td> <%= categorias[i].nombreCategoria %></td>
+                <td>
+                    <a href="/eliminar/<%= categorias[i].idcategoria %>" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                        Eliminar</a>
+                    <a href="/editar/<%= categorias[i].idcategoria %>" class="btn btn-warning">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        Actualizar</a>
+                </td>
+              </tr>
+       <% } %>
+    <%} %>
+</tbody>
+</table>
+</div>

@@ -1,0 +1,30 @@
+<%-include('partials/encabezado.html');%>
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/actualizar/<%= categorias.idcategoria %>" method="post">
+                        <div class="form-group row mb-4">
+                            <label for="txtEmail" class="col-12 col-form-label">Nombre de la categoría</label>
+                            <div class="col-12">
+                                <input type="text" name="nombreCategoria" placeholder="Introduce el nombre" value="<%= categorias.nombreCategoria %>" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <a href="/admin/categorias" class="btn btn-secondary">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                Regresar
+                            </a>
+                            <button class="btn btn-primary m-2" type="submit">
+                                <i class="fa-solid fa-check"></i>
+                                Actualizar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
