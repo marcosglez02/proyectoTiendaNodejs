@@ -18,7 +18,7 @@
         </div>
     </form>
     <h2 class="text-center mt-4">Todas las categorías</h2>
-    <table class="table text-center">
+    <table class="table text-center table-light table-hover table-bordered mt-2 mb-5 caption-top">
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -33,10 +33,10 @@
                 <th scope="row"><%= (i + 1) %></th>
                 <td> <%= categorias[i].nombreCategoria %></td>
                 <td>
-                    <a href="/eliminar/<%= categorias[i].idcategoria %>" class="btn btn-danger">
+                    <a href="/eliminar/<%= categorias[i].idCategoria %>" class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i>
                         Eliminar</a>
-                    <a href="/editar/<%= categorias[i].idcategoria %>" class="btn btn-warning">
+                    <a href="/editar/<%= categorias[i].idCategoria %>" class="btn btn-warning">
                         <i class="fa-solid fa-pen-to-square"></i>
                         Actualizar</a>
                 </td>

@@ -1,0 +1,134 @@
+<%-include('partials/encabezado.html');%>
+<div class="container ">
+    <div class="row">
+        <div class="col-md-10 offset-md-1 p-4 mt-2 text-dark pt-4 rounded">
+
+            <form action="/insertarProducto" method="post" enctype="multipart/form-data">
+                
+                <div class="form-group row mb-4">
+                    <div class="col-md-6">
+                        <label for="" class="col-form-label">Código del producto</label>
+                        <div class="input-group-text mb-3">
+                            <span class="input-group-text">#</span>
+                            <input type="text" name="idProducto" placeholder="Introduce el código del producto"
+                                class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="" class="col-md-6 col-form-label">Precio</label>
+                        <div class="input-group-text mb-3">
+                            <span class="input-group-text">$</span>
+                            <input type="number" name="precio" placeholder="Introduce el precio del producto"
+                                class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="txtNombre" class="col-md-2 col-form-label">Nombre del producto</label>
+                    <div class="col-md-10">
+                        <input type="text" name="nombreProducto" placeholder="Introduce el nombre"
+                            class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="txtcantidad" class="col-md-2 col-form-label">Cantidad</label>
+                    <div class="col-md-10">
+                        <input type="number" name="cantidad" placeholder="Introduce la cantidad"
+                            class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="" class="col-md-2 col-form-label">Descripción</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" name="descripcion" rows="2"
+                            placeholder="Introduce una descripción breve" maxlength="125" required></textarea>
+                    </div>
+
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="" class="col-md-2 col-form-label">Categoría</label>
+                    <div class="col">
+                        <select name="idCategoria" id="" class="form-select">
+                            <option value="0">Sin categoría</option>
+                            <% if(categorias){%>
+                                <% for(let i=0;i<categorias.length;i++){%>
+                                    <option value="<%= categorias[i].idCategoria %>"><%= categorias[i].nombreCategoria %></option>
+                                <% } %>
+                            <%} %>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="col-md-2 col-form-label">Selecciona una imagen</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="file" name="img" id="img" accept="image/png,image/jpeg" required>
+                    </div>
+                </div>
+                <div class="form-group row mb-2 justify-content-center">
+                    <img class="w-50" id="imagenSeleccionada" src="">
+                </div>
+                <div class="text-end">
+                    <button class="btn btn-success m-2" type="submit">
+                        <i class="fa-solid fa-plus"></i>
+                        Añadir producto
+                    </button>
+                    <button type="reset" class="btn btn-dark m-2 col-md-3">Limpiar</button>
+                </div>
+            </form>
+
+        </div>
+        <h2 class="mt-2" style="text-align: center;">Listado de productos</h2>
+
+    </div>
+    <table class="table table-light table-hover table-bordered mt-2 mb-5 caption-top">
+    <thead>
+        <tr class="text-center">
+          <th scope="col" width="10%">Código</th>
+          <th scope="col" width="10%">Nombre</th>
+          <th scope="col" width="25%">Descripción</th>
+          <th scope="col" width="10%">Cantidad</th>
+          <th scope="col" width="10%">Precio</th>
+          <th scope="col" width="5%">Categoría</th>
+          <th scope="col" width="5%">estatus</th>
+          <th scope="col" width="15%">Imagen</th>
+          <th scope="col" width="10%">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <% if(productos){%>
+            <% for(let i=0;i<productos.length;i++){%> %>
+                <tr class="text-center align-middle">
+                    <td><%= productos[i].idProducto %></td>
+                    <td><%= productos[i].nombreProducto %></td>
+                    <td><%= productos[i].descripcion %></td>
+                    <td><%= productos[i].cantidad %></td>
+                    <td>$<%= productos[i].precio %></td>
+                    <td><%= productos[i].idCategoria %></td>
+                    <td><%= productos[i].estatus %></td>
+                    <td><img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_120,h_120,c_fill,q_90/<%= productos[i].img %>" alt=""></td>
+                    <td>
+                        <% if (productos[i].estatus === 1) { %>
+							<a href="/eliminarProducto/<%= productos[i].idProducto %>" class="btn btn-danger">
+								<i class="fa-solid fa-trash"></i>
+							</a>
+							<% } else { %>
+							<a href="/eliminarProducto/<%= productos[i].idProducto %>" class="btn btn-success">
+								<i class="fa-solid fa-unlock"></i>
+							</a>
+							<% } %>
+
+                        <a href="/editarProducto/<%= productos[i].idProducto %>" class="btn btn-warning">
+                            <i class="fa-solid fa-pen-to-square"></i></a>
+                    </td>
+                </tr>
+            <% } %>
+      </tbody>
+    </table>
+        <%} %>
+</div>
+
+
+
+
+</table>
+<script src="../js/productos.js"></script>

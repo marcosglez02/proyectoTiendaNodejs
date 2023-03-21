@@ -1,0 +1,83 @@
+<%-include('partials/encabezado.html');%>
+
+<div class="container">
+    <div class="row">
+            <form action="/actualizarProducto/<%= producto.idProducto %>" method="post" enctype="multipart/form-data">
+                
+                <div class="form-group row mb-4">
+                        <label for="" class="col-md-2 col-form-label">Código del producto</label>
+                        <div class="col-md-10 input-group-text mb-3">
+                            <span class="input-group-text">#</span>
+                            <input type="text" name="idProducto" value="<%= producto.idProducto %>" placeholder="Introduce el código del producto"
+                                class="form-control" required>
+                        </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="" class="col-md-2 col-form-label">Precio</label>
+                        <div class="col-md-10 input-group-text mb-3">
+                            <span class="input-group-text">$</span>
+                            <input type="number" name="precio" value="<%= producto.precio %>" placeholder="Introduce el precio del producto"
+                                class="form-control" required>
+                        </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="txtNombre" class="col-md-2 col-form-label">Nombre del producto</label>
+                    <div class="col-md-10">
+                        <input type="text" name="nombreProducto" value="<%= producto.nombreProducto %>" placeholder="Introduce el nombre"
+                            class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="txtcantidad" class="col-md-2 col-form-label">Cantidad</label>
+                    <div class="col-md-10">
+                        <input type="number" name="cantidad" value="<%= producto.cantidad %>" placeholder="Introduce la cantidad"
+                            class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="" class="col-md-2 col-form-label">Descripción</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" name="descripcion" rows="2"
+                            placeholder="Introduce una descripción breve" maxlength="125" required><%= producto.descripcion %></textarea>
+                    </div>
+
+                </div>
+                <div class="form-group row mb-4">
+                    <label for="" class="col-md-2 col-form-label">Categoría</label>
+                    <div class="col">
+                        <select name="idCategoria" id="" class="form-select">
+                            <option value="0">Sin categoría</option>
+                            <% if(categorias){%>
+                                <% for(let i=0;i<categorias.length;i++){%>
+                                    <option value="<%= categorias[i].idCategoria %>" <% if(producto.idCategoria === categorias[i].idCategoria){ %>selected<% } %>><%= categorias[i].nombreCategoria %></option>
+                                <% } %>
+                            <%} %>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="" class="col-md-2 col-form-label">Selecciona una imagen</label>
+                    <div class="col-md-10">
+                        <input class="form-control" value="<%= producto.img %>" type="file" name="img" id="img" accept="image/png,image/jpeg">
+                    </div>
+                </div>
+                <div class="form-group row mb-2 justify-content-center">
+                    <div class="col-12 text-center">
+                        <h4>Imágen del producto</h4>
+                        <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_150,h_150,c_fill,q_90/<%= producto.img %>">
+                    </div>
+                    
+                </div>
+                <div class="text-end">
+                    <a href="/admin/productos" class="btn btn-secondary">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Regresar
+                    </a>
+                    <button class="btn btn-primary m-2" type="submit">
+                        <i class="fa-solid fa-check"></i>
+                        Actualizar
+                    </button>
+                </div>
+            </form>
+    </div>
+</div>
