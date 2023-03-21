@@ -8,12 +8,10 @@ import {
     editarCategoria,
     actualizarCategoria } from "../controllers/categoriasController.js"
 
-//const categoriasController = require('../controllers/categoriasController')
-
 router.get('/admin/categorias', mostrarCategorias);
 router.post("/insertar", insertarCategoria);
-router.get("/eliminar/:idcategoria", eliminarCategoria);
-router.get("/editar/:idcategoria",editarCategoria);
-router.post("/actualizar/:idcategoria",actualizarCategoria)
+router.get("/eliminar/:idCategoria", eliminarCategoria);
+router.get("/editar/:idCategoria",editarCategoria);
+router.post("/actualizar/:idCategoria",actualizarCategoria)
 
 export default router;

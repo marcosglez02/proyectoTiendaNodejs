@@ -10,13 +10,6 @@ router.get('/',(req,res)=>{
         res.render('index.html',valores)
 });
 
-router.get('/admin/formulario',(req,res)=>{
-    const valores={
-        titulo:"Administrador"
-       }
-        res.render('admin/formulario.html',valores)
-});
-
 router.get('/admin/promociones',(req,res)=>{
     const valores={
         titulo:"Promociones"

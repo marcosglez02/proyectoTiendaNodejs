@@ -14,10 +14,13 @@ app.use(bodyparser.urlencoded({extended:true}));
 
 // Rutas
 import adminCategorias from "./router/categorias.js"
+import adminProductos from "./router/productos.js"
 import ruta from "./router/index.js"
+
 
 app.use(adminCategorias);
 app.use(ruta);
+app.use(adminProductos)
 
 app.use((req,res,next)=>{res.status(404).sendFile(__dirname+'/public/error.html')})
 // Escuchar al servidor por el puerto 3001

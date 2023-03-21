@@ -12,8 +12,8 @@ export const insertarCategoria = async (req, res) => {
 };
 
 export const eliminarCategoria = async (req, res) => {
-    const { idcategoria } = req.params;
-    const resultado = await pool.query("delete from categorias WHERE idcategoria = ?", [idcategoria]);
+    const { idCategoria } = req.params;
+    const resultado = await pool.query("delete from categorias WHERE idCategoria = ?", [idCategoria]);
     if (resultado.affectedRows === 1) {
       res.json({ message: "Se eliminó la categoría" });
     }
@@ -21,13 +21,13 @@ export const eliminarCategoria = async (req, res) => {
   };
 
 export const editarCategoria = async (req, res) => {
-    const { idcategoria } = req.params;
-    const [resultado] = await pool.query("select * from categorias WHERE idcategoria = ?", [idcategoria]);
+    const { idCategoria } = req.params;
+    const [resultado] = await pool.query("select * from categorias WHERE idCategoria = ?", [idCategoria]);
     res.render("admin/categoriasActu.html", { categorias: resultado[0],titulo:"Editar categoría" });
 };
 export const actualizarCategoria = async (req, res) => {
-    const { idcategoria } = req.params;
+    const { idCategoria } = req.params;
     const nuevaCategoria = req.body;
-    await pool.query("update categorias set ? WHERE idcategoria = ?", [nuevaCategoria, idcategoria]);
+    await pool.query("update categorias set ? WHERE idCategoria = ?", [nuevaCategoria, idCategoria]);
     res.redirect("/admin/categorias");
 };
