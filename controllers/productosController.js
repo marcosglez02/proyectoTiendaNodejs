@@ -81,16 +81,27 @@ export const editarProducto = async(req,res)=>{
 }
 export const actualizarProducto = async(req,res)=>{
   const { idProducto } = req.params;
-    const nuevoProducto = {
-      idProducto: idProducto,
+    let nuevoProducto = {
       nombreProducto: req.body.nombreProducto,
       descripcion: req.body.descripcion,
       cantidad: parseInt(req.body.cantidad),
       precio: parseFloat(req.body.precio),
       idCategoria: parseInt(req.body.idCategoria),
-      estatus: req.body.estatus,
-      img: req.body.img,
     };
+    if(req.files!=null){
+      // Extraemos el archivo de la request el nombre "file" debe coincidir con el valor del atributo name del input
+      const file = req.files.img;
+      console.log(file)
+      // Hacemos uso de cloudinary para subir el archivo
+      const uploaded = await cloudinary.uploader.upload(file.tempFilePath, {
+        folder: "productos", // Asignamos la carpeta de destino
+      });
+      eliminarTemporal(file.tempFilePath);
+      // Extraemos la url pública del archivo en cloudinary
+      const url = `${uploaded.public_id}.${uploaded.format}`; // Se obtienenla URL de la imagen en Cloudinary
+      console.log(url)
+      nuevoProducto.img = url
+    }
     await pool.query("update productos set ? WHERE idProducto = ?", [nuevoProducto, idProducto]);
     res.redirect("/admin/productos");
 }

@@ -2,16 +2,7 @@
 
 <div class="container">
     <div class="row">
-            <form action="/actualizarProducto/<%= producto.idProducto %>" method="post" enctype="multipart/form-data">
-                
-                <div class="form-group row mb-4">
-                        <label for="" class="col-md-2 col-form-label">Código del producto</label>
-                        <div class="col-md-10 input-group-text mb-3">
-                            <span class="input-group-text">#</span>
-                            <input type="text" name="idProducto" value="<%= producto.idProducto %>" placeholder="Introduce el código del producto"
-                                class="form-control" required>
-                        </div>
-                </div>
+            <form action="/actualizarProducto/<%= producto.idProducto %>" method="post" >
                 <div class="form-group row mb-4">
                     <label for="" class="col-md-2 col-form-label">Precio</label>
                         <div class="col-md-10 input-group-text mb-3">

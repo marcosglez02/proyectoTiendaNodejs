@@ -133,7 +133,7 @@ router.get('/productos',(req,res)=>{
  router.get('/registro',(req,res)=>{
     const valores={
      titulo:"registro",
-     encabezado:"registrate"
+     encabezado:"Registrate"
     }
      res.render('registro.html',valores)
  });
@@ -141,7 +141,7 @@ router.get('/productos',(req,res)=>{
  router.post('/registro',(req,res)=>{
      const valores={
          titulo:"registro",
-         encabezado:"registrate"
+         encabezado:"Registrate"
         }
          res.render('registro.html',valores)
  });
@@ -150,7 +150,7 @@ router.get('/productos',(req,res)=>{
  router.get('/recu',(req,res)=>{
     const valores={
      titulo:"recu",
-     encabezado:"recu"
+     encabezado:"Recuperar contraseña"
     }
      res.render('recu.html',valores)
  });
