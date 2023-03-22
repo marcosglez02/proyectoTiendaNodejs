@@ -3,90 +3,48 @@
     <%-include('partials/encabezado.html');%>
     
 <body>
-    
+    <form action="/insertarProducto" method="post" enctype="multipart/form-data"></form>
     <div class="wrap">
         <h1>Escoge un disfraz</h1>
         <div class="store-wrapper">
             <div class="category_list">
-                <a href="#" class="category_item" category="all">Todo</a>
-                <a href="#" class="category_item" category="bebes">Bebes</a>
-                <a href="#" class="category_item" category="niño">Niños</a>
-                <a href="#" class="category_item" category="niña">Niñas</a>
-                <a href="#" class="category_item" category="hombre">Hombres</a>
-                <a href="#" class="category_item" category="mujer">Mujeres</a>
-            </div>
-            <section class="products-list" class="cotenido">
+                <% if(categorias){%>
+                    <% for(let i=0;i<categorias.length;i++){%>
+                        <a href="#" class="category_item" category="all"><%= categorias[i].nombreCategoria %></a>
+                    <% } %>
+                <%} %>
                 
-                <div class="item" category="bebes" onclick="cargar(this)">
-                    <div class="contenedor-foto">
-                        <img src="./img/DisfrazBebe1.jpg" alt="" >
-                    </div>
-                    <a class="descripcion">Bebe banana</a>
-                    <span class="precio">$ 400</span>
-                </div>
-                <div class="item" category="bebes" onclick="cargar(this)">
-                    <div class="contenedor-foto">
-                        <img src="./img/DisfrazBebe2.jpg" alt="" >
-                    </div>
-                    <a class="descripcion">Bebe prisionero</a>
-                    <span class="precio">$ 400</span>
-                </div>
-                <div class="item" category="niño" onclick="cargar(this)">
-                    <div class="contenedor-foto">
-                        <img src="./img/DisfrazNiño1.jpg" alt="" >
-                    </div>
-                    <a class="descripcion">Niño paleta</a>
-                    <span class="precio">$ 600</span>
-                </div>
-                <div class="item" category="niño"onclick="cargar(this)">
-                    <div class="contenedor-foto">
-                        <img src="./img/DisfrazNiño2.jpg" alt="" >
-                    </div>
-                    <a class="descripcion">Niño elefante</a>
-                    <span class="precio">$ 600</span>
-                </div>
-                <div class="item" category="niña" onclick="cargar(this)">
-                    <div class="contenedor-foto">
-                        <img src="./img/DisfrazNiña1.jpg" alt="" >
-                    </div>
-                    <a class="descripcion">Niña avioneta</a>
-                    <span class="precio">$ 600</span>
-                </div>
-                <div class="item" category="niña" onclick="cargar(this)">
-                    <div class="contenedor-foto">
-                        <img src="./img/DisfrazNiña2.jpg" alt="" >
-                    </div>
-                    <a class="descripcion">Niña elmo</a>
-                    <span class="precio">$ 600</span>
-                </div>
-                <div class="item" category="hombre" onclick="cargar(this)">
-                    <div class="contenedor-foto">
-                        <img src="./img/DisfrazHombre1.jpg" alt="" >
-                    </div>
-                    <a class="descripcion">Hombre santa</a>
-                    <span class="precio">$ 1000</span>
-                </div>
-                <div class="item" category="hombre" onclick="cargar(this)">
-                    <div class="contenedor-foto">
-                        <img src="./img/DisfrazHombre2.jpg" alt="" >
-                    </div>
-                    <a class="descripcion">Hombre delfin</a>
-                    <span class="precio">$ 1200</span>
-                </div>
-                <div class="item" category="mujer" onclick="cargar(this)">
-                    <div class="contenedor-foto">
-                        <img src="./img/DisfrazMujer1.jpg" alt="" >
-                    </div>
-                    <a class="descripcion">Tinkerbell</a>
-                    <span class="precio">$ 1200</span>
-                </div>
-                <div class="item" category="mujer" onclick="cargar(this)">
-                    <div class="contenedor-foto">
-                        <img src="./img/DisfrazMujer2.jpg" alt="" >
-                    </div>
-                    <a class="descripcion">Policia sexy</a>
-                    <span class="precio">$ 1200</span>
-                </div>
+               
+            </div>
+            
+                
+                    <section class="products-list" class="cotenido">
+                        
+                    <!--Diseño de despligue-->
+                    <% if(productos){%>
+                        <% for(let i=0;i<productos.length;i++){%> %>
+                            <div class="item" category="bebes" onclick="cargar(this)">
+                                <div class="contenedor-foto">
+                                    <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_1000,h_1000,c_fill,q_90/<%= productos[i].img %>" alt="">
+                                </div>
+                                <a class="descripcion"><%= productos[i].descripcion %></a>
+                                <span class="precio">$<%= productos[i].precio %></span>
+                            </div>
+                                 <% } %>
+                            
+                               
+                        <% } %>
+                
+                </section>
+
+
+
+
+
+
+                
+                 
+            </form>
           
 
         <!-- ventana emergente -->
@@ -111,7 +69,7 @@
             </div>
         </div>
     </div>
-</section>
+
 
 
     <br>

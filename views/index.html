@@ -1,5 +1,6 @@
 <%-include('partials/encabezado.html');%>
 <div class="container-fluid">
+    <img src="./img/disfracesBanner.png" class="d-block w-100 shadow-1-strong" alt="Banner empresa">
     <br>
     <div class="container" id="carousel">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -10,13 +11,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://via.placeholder.com/600x200/FF0000/FFFFFF?text=Disfraz+1" class="d-block w-100 shadow-1-strong rounded-5" alt="Slide 1">
+                    <img src="./img/disfracesMujerCarousel.png" class="d-block w-100 shadow-1-strong rounded-5 img-fluid" alt="Carousel 1, disfraces de mujer">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://via.placeholder.com/600x200/00FF00/FFFFFF?text=Disfraz+2" class="d-block w-100 shadow-1-strong rounded-5" alt="Slide 2">
+                    <img src="./img/disfracesNiñasCarousel.png" class="d-block w-100 shadow-1-strong rounded-5 img-fluid" alt="Carousel 2, disfraces para niñas">
                 </div>  
                 <div class="carousel-item">
-                    <img src="https://via.placeholder.com/600x200/0000FF/FFFFFF?text=Disfraz+3" class="d-block w-100 shadow-1-strong rounded-5" alt="Slide 3">
+                    <img src="./img/aceptamosMetodosPagoCarousel.png" class="d-block w-100 shadow-1-strong rounded-5 img-fluid" alt="Carousel 3, ahora aceptamos los siguientes métodos de pago">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -33,46 +34,48 @@
     <div class="row">
         <div class="col-lg-3 col-sm-5">
             <div class="sticky-top">
-            <center>
-                <br>
-                <div class="btn-group">
-                    <ul class="list-group dropend dropdown-end">
-                        <li class="list-group-item active" aria-current="true">Categorías</li>
-                        <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0" href="#" role="button" id="hombresDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para hombres</li>
-                        <div class="dropdown-menu" aria-labelledby="hombresDropdown">
-                            <a class="dropdown-item" href="#">Disfraces de halloween</a>
-                            <a class="dropdown-item" href="#">Cosplay</a>
-                            <a class="dropdown-item" href="#">Máscaras</a>
-                            <a class="dropdown-item" href="#">Accesorios</a>
-                        </div>
-                        <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0" href="#" role="button" id="mujeresDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para mujeres</li>
-                        <div class="dropdown-menu" aria-labelledby="mujeresDropdown">
-                            <a class="dropdown-item" href="#">Disfraces de halloween</a>
-                            <a class="dropdown-item" href="#">Cosplay</a>
-                            <a class="dropdown-item" href="#">Disfraces +18</a>
-                            <a class="dropdown-item" href="#">Máscaras</a>
-                            <a class="dropdown-item" href="#">Accesorios</a>
-                        </div>
-                        <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0" href="#" role="button" id="niñosDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para niños</li>
-                        <div class="dropdown-menu" aria-labelledby="niñosDropdown">
-                            <a class="dropdown-item" href="#">Disfraces de halloween</a>
-                            <a class="dropdown-item" href="#">Cosplay</a>
-                            <a class="dropdown-item" href="#">Inflables</a>
-                            <a class="dropdown-item" href="#">Para menores de 3 años</a>
-                            <a class="dropdown-item" href="#">Máscaras</a>
-                            <a class="dropdown-item" href="#">Accesorios</a>
-                        </div>
-                        <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0 rounded-bottom" href="#" role="button" id="mascotasDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para mascotas</li>
-                        <div class="dropdown-menu" aria-labelledby="mascotasDropdown">
-                            <a class="dropdown-item" href="#">Collares</a>
-                            <a class="dropdown-item" href="#">Para gatos</a>
-                            <a class="dropdown-item" href="#">Para perros</a>
-                            <a class="dropdown-item" href="#">Para aves</a>
-                        </div>
-                    </ul>
-                </div>
-                <br>
-            </center>
+                <center>
+                    <br>
+                    <div class="btn-group">
+                        <ul class="list-group dropend dropdown-end">
+                            <li class="list-group-item active" aria-current="true">Categorías</li>
+                            <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0" href="#" role="button" id="hombresDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para hombres</li>
+                            <div class="dropdown-menu bg-info" aria-labelledby="hombresDropdown">
+                                <a class="dropdown-item btn btn-light" href="#">Disfraces de halloween</a>
+                                <a class="dropdown-item btn btn-light" href="#">Cosplay</a>
+                                <a class="dropdown-item btn btn-light" href="#">Máscaras</a>
+                                <a class="dropdown-item btn btn-light" href="#">Accesorios</a>
+                            </div>
+                            <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0" href="#" role="button" id="mujeresDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para mujeres</li>
+                            <div class="dropdown-menu bg-info" aria-labelledby="mujeresDropdown">
+                                <a class="dropdown-item btn btn-light" href="#">Disfraces de halloween</a>
+                                <a class="dropdown-item btn btn-light" href="#">Cosplay</a>
+                                <a class="dropdown-item btn btn-light" href="#">Disfraces +18</a>
+                                <a class="dropdown-item btn btn-light" href="#">Máscaras</a>
+                                <a class="dropdown-item btn btn-light" href="#">Accesorios</a>
+                            </div>
+                            <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0" href="#" role="button" id="niñosDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para niños</li>
+                            <div class="dropdown-menu bg-info" aria-labelledby="niñosDropdown">
+                                <a class="dropdown-item btn btn-light" href="#">Disfraces de halloween</a>
+                                <a class="dropdown-item btn btn-light" href="#">Cosplay</a>
+                                <a class="dropdown-item btn btn-light" href="#">Inflables</a>
+                                <a class="dropdown-item btn btn-light" href="#">Para menores de 3 años</a>
+                                <a class="dropdown-item btn btn-light" href="#">Máscaras</a>
+                                <a class="dropdown-item btn btn-light" href="#">Accesorios</a>
+                            </div>
+                            <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0 rounded-bottom" href="#" role="button" id="mascotasDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para mascotas</li>
+                            <div class="dropdown-menu bg-info" aria-labelledby="mascotasDropdown">
+                                <a class="dropdown-item btn btn-light" href="#">Collares</a>
+                                <a class="dropdown-item btn btn-light" href="#">Para gatos</a>
+                                <a class="dropdown-item btn btn-light" href="#">Para perros</a>
+                                <a class="dropdown-item btn btn-light" href="#">Para aves</a>
+                            </div>
+                        </ul>
+                    </div>
+                    <br>
+                    <br>
+                    <img src="./img/tarjetas.png" class="w-50" alt="Pagos con tarjeta">
+                </center>
             </div>
             <br>
             <br>
@@ -108,7 +111,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="card-title">Nuestro popular disfraz de diabla 100% original de la casa, ¡a un súper precio!</p>
+                            <p class="card-text">Nuestro popular disfraz de diabla 100% original de la casa, ¡a un súper precio!</p>
                         </div>
                     </div>
                 </div>
