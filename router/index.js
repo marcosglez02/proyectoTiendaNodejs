@@ -49,16 +49,16 @@ router.post('/carrito',(req,res)=>{
 
 
 
-router.get('/productos',(req,res)=>{
+router.get('/Productos',(req,res)=>{
     const valores={
-     titulo:"productos"
+     titulo:"Productos"
     }
      res.render('productos.html',valores)
  });
  
- router.post('/productos',(req,res)=>{
+ router.post('/Productos',(req,res)=>{
      const valores={
-         titulo:"productos"
+         titulo:"Productos"
         }
          res.render('productos.html',valores)
  });
@@ -79,16 +79,16 @@ router.get('/productos',(req,res)=>{
  });
 
 
- router.get('/contactos',(req,res)=>{
+ router.get('/Contactos',(req,res)=>{
     const valores={
-     titulo:"contactos"
+     titulo:"Contactos"
     }
      res.render('contactos.html',valores)
  });
  
- router.post('/contactos',(req,res)=>{
+ router.post('/Contactos',(req,res)=>{
      const valores={
-         titulo:"contactos"
+         titulo:"Contactos"
         }
          res.render('contactos.html',valores)
  });

@@ -6,7 +6,7 @@ export const mostrarProductos = async (req, res) => {
   res.render("productos.html", {
     productos: rows,
     categorias: categorias,
-    titulo: "productos",
+    titulo: "Productos",
   });
 };
 

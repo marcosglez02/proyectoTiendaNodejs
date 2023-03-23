@@ -28,13 +28,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="/nosotros">Nosotros</a>
+                <a class="nav-link <%if(titulo == 'Nosotros'){%>active<%}%>" href="/Nosotros">Nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/contactos">Contactos</a>
+                <a class="nav-link <%if(titulo == 'Contactos'){%>active<%}%>" href="/Contactos">Contactos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/nosotros">Acerca de nosotros</a>
+                <a class="nav-link <%if(titulo == 'Productos'){%>active<%}%>" href="/Productos">Productos</a>
               </li>
             </ul>
             <form class="d-flex" action="/carrito" method="post">

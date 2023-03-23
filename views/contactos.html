@@ -1,6 +1,60 @@
 <%-include('partials/encabezado.html');%>
 <body>
-    <h1>contacto</h1>
+    <div class="container mt-2">
+        <h1 class="text-center">Contáctanos</h1>
+        <div class="row">
+            <form action="">
+                <div class="form-group row mb-5">
+                    <label for="txtNombre" class="col-md-2 col-form-label">Nombre</label>
+                    <div class="col-md-10">
+                        <input type="text" name="nombreCliente" placeholder="Introduce el nombre"
+                            class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row mb-5">
+                    <label for="txtNombre" class="col-md-2 col-form-label">Apellido</label>
+                    <div class="col-md-10">
+                        <input type="text" name="apellidoCliente" placeholder="Introduce el apellido"
+                            class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row mb-5">
+                    <label for="txtNombre" class="col-md-2 col-form-label">Correo electrónico</label>
+                    <div class="col-md-10">
+                        <input type="text" name="apellidoCliente" placeholder="Introduce el correo"
+                            class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row mb-5">
+                    <label for="txtNombre" class="col-md-2 col-form-label">Tipo de mensaje</label>
+                    <div class="col-md-10">
+                        <select class="form-select" name="" id="">
+                            <option value="">Duda</option>
+                            <option value="">Comentario</option>
+                            <option value="">Sugerencia</option>
+                            <option value="">Inconformidad</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mb-5">
+                    <label for="" class="col-md-2 col-form-label">Mensaje</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" name="descripcion" rows="3"
+                            placeholder="Introduce tu comentario" maxlength="125" required></textarea>
+                    </div>
+
+                </div>
+                <div class="text-end mb-4">
+                <button type="reset" class="btn btn-dark m-2 col-md-3">Limpiar</button>
+                <button class="btn btn-primary m-2" type="submit">
+                    <i class="fa-solid fa-envelope"></i>
+                    Enviar comentario
+                </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
 <%-include('partials/piePagina.html');%>
 </body>
 </html>
