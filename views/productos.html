@@ -10,7 +10,7 @@
             <div class="category_list">
                 <% if(categorias){%>
                     <% for(let i=0;i<categorias.length;i++){%>
-                        <a href="#" class="category_item" category="all"><%= categorias[i].nombreCategoria %></a>
+                        <a href="#" class="category_item" style="background-color:rgba(0, 174, 255, 0.993) ;" category="all"><%= categorias[i].nombreCategoria %></a>
                     <% } %>
                 <%} %>
                 
@@ -22,14 +22,24 @@
                         
                     <!--Diseño de despligue-->
                     <% if(productos){%>
+                        
+
                         <% for(let i=0;i<productos.length;i++){%> %>
+
+                            <%let estado = productos[i].estatus; %>
+                            <%if(estado==1){%>
                             <div class="item" category="bebes" onclick="cargar(this)">
                                 <div class="contenedor-foto">
                                     <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_1000,h_1000,c_fill,q_90/<%= productos[i].img %>" alt="">
                                 </div>
-                                <a class="descripcion"><%= productos[i].descripcion %></a>
+                                <a class="descripcion" style="background-color:rgba(0, 174, 255, 0.993) ;"><%= productos[i].descripcion %></a>
                                 <span class="precio">$<%= productos[i].precio %></span>
+                                <span class="Existencia">Existencia: <%= productos[i].cantidad %></span>
                             </div>
+                            <% } %>
+
+
+                            
                                  <% } %>
                             
                                
