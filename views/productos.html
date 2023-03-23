@@ -10,7 +10,7 @@
             <div class="category_list">
                 <% if(categorias){%>
                     <% for(let i=0;i<categorias.length;i++){%>
-                        <a href="#" class="category_item" style="background-color:rgba(0, 174, 255, 0.993) ;" category="all"><%= categorias[i].nombreCategoria %></a>
+                        <a href="/Productos/<%= categorias[i].idCategoria %>" class="category_item" style="background-color:rgba(0, 174, 255, 0.993) ;" category="all"><%= categorias[i].nombreCategoria %></a>
                     <% } %>
                 <%} %>
                 

@@ -113,3 +113,8 @@ a{
         font-size: 0.7rem;
     }
 }
+
+.fondoDisfraces {
+    background: rgb(75,53,212);
+    background: linear-gradient(156deg, rgba(75,53,212,0.9659090909090909) 27%, rgba(255,180,128,1) 100%);
+}
