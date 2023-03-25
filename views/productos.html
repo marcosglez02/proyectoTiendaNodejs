@@ -8,13 +8,24 @@
         <h1>Escoge un disfraz</h1>
         <div class="store-wrapper">
             <div class="category_list">
-                <% if(categorias){%>
-                    <% for(let i=0;i<categorias.length;i++){%>
-                        <a href="#" class="category_item" style="background-color:rgba(0, 174, 255, 0.993) ;" category="all"><%= categorias[i].nombreCategoria %></a>
-                    <% } %>
-                <%} %>
-                
-               
+                <div class="form-group row mb-4">
+                    <form action="/filtroCategoria" method="post">
+                    <h2>Categorias</h2>
+                    <br>
+                    <div class="col">
+                        <br>
+                        <select name="idCategoria" id="" class="form-select">
+                            <option value="#">Todos</option>
+                            <% if(categorias){%>
+                                <% for(let i=0;i<categorias.length;i++){%>
+                                    <option value="<%= categorias[i].idCategoria %>"><%= categorias[i].nombreCategoria %></option>
+                                <% } %>
+                            <%} %>
+                        </select>
+                    </div>
+                    <button class="btn --bs-light-text mx-2 my-3" type="submit">Buscar <i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                </div>
             </div>
             
                 

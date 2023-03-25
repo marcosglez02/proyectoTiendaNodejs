@@ -1,9 +1,6 @@
-
 import { Router } from "express";
 const router = Router();
 
-import{mostrarProductos,mostrarCategorias} from "../controllers/productosVista.js"
-router.get("/productos",mostrarProductos)
 router.get('/',(req,res)=>{
     const valores={
         titulo:"Inicio"
@@ -11,7 +8,7 @@ router.get('/',(req,res)=>{
         res.render('index.html',valores)
 });
 
-router.get("/productos",mostrarCategorias)
+
 router.get('/',(req,res)=>{
     const valores={
         titulo:"Inicio"
@@ -46,22 +43,6 @@ router.post('/carrito',(req,res)=>{
        }
         res.render('carrito.html',valores)
 });
-
-
-
-router.get('/Productos',(req,res)=>{
-    const valores={
-     titulo:"Productos"
-    }
-     res.render('productos.html',valores)
- });
- 
- router.post('/Productos',(req,res)=>{
-     const valores={
-         titulo:"Productos"
-        }
-         res.render('productos.html',valores)
- });
 
 
  router.get('/admin',(req,res)=>{
