@@ -40,30 +40,9 @@
                         <div class="btn-group">
                             <ul class="list-group dropdown dropdown-end">
                                 <li class="list-group-item active" aria-current="true">Categorías</li>
-                                <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0" href="#" role="button" id="hombresDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para hombres</li>
-                                <div class="dropdown-menu bg-info" aria-labelledby="hombresDropdown">
-                                    <% for(let i=0;i<categorias.length;i++){%>
-                                        <a class="dropdown-item btn btn-light" href="/Productos/<%= categorias[i].idCategoria %>"><%= categorias[i].nombreCategoria %></a>
-                                    <% } %>
-                                </div>
-                                <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0" href="#" role="button" id="mujeresDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para mujeres</li>
-                                <div class="dropdown-menu bg-info" aria-labelledby="mujeresDropdown">
-                                    <% for(let i=0;i<categorias.length;i++){%>
-                                        <a class="dropdown-item btn btn-light" href="/Productos/<%= categorias[i].idCategoria %>"><%= categorias[i].nombreCategoria %></a>
-                                    <% } %>
-                                </div>
-                                <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0" href="#" role="button" id="niñosDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para niños</li>
-                                <div class="dropdown-menu bg-info" aria-labelledby="niñosDropdown">
-                                    <% for(let i=0;i<categorias.length;i++){%>
-                                        <a class="dropdown-item btn btn-light" href="/Productos/<%= categorias[i].idCategoria %>"><%= categorias[i].nombreCategoria %></a>
-                                    <% } %>
-                                </div>
-                                <li class="list-group-item dropdown-toggle btn btn-info text-start rounded-0 rounded-bottom" href="#" role="button" id="mascotasDropdown" data-bs-toggle="dropdown" aria-expanded="false">Disfraces para mascotas</li>
-                                <div class="dropdown-menu bg-info" aria-labelledby="mascotasDropdown">
-                                    <% for(let i=0;i<categorias.length;i++){%>
-                                        <a class="dropdown-item btn btn-light" href="/Productos/<%= categorias[i].idCategoria %>"><%= categorias[i].nombreCategoria %></a>
-                                    <% } %>
-                                </div>
+                                <% for(let i=0;i<categorias.length;i++){%>
+                                    <a href="/Productos/<%= categorias[i].idCategoria %>"><li class="list-group-item btn btn-info text-start rounded-0" role="button" id="hombresDropdown" data-bs-toggle="dropdown" aria-expanded="false"><%= categorias[i].nombreCategoria %></li></a>
+                                <% } %>
                             </ul>
                         </div>
                         <br>
