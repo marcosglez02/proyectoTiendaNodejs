@@ -2,11 +2,11 @@
 import { Router } from "express";
 const router = Router();
 
-import{mostrarProductos,mostrarCategorias,showCategorias} from "../controllers/productosVista.js"
+import{mostrarProductos,mostrarCategorias,showCategoriasProductos} from "../controllers/productosVista.js"
 router.get("/productos",mostrarProductos)
 
 
-router.get("/",showCategorias)
+router.get("/",showCategoriasProductos)
 router.get('/',(req,res)=>{
     const valores={
         titulo:"Inicio"
