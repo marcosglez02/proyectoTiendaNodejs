@@ -77,13 +77,17 @@
                                         <div class="hover-card">
                                             <!--Diseño de despligue-->
                                             <div class="item" category="bebes" onclick="cargar(this)">   
-                                                <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_1000,h_1000,c_fill,q_90/<%= producto.img %>" class="w-100 shadow-1-strong rounded-top card-image-top" alt="">
-                                                <div class="">
-                                                    <div class="text">COMPRAR</div>
+                                                <div class="imagen">
+                                                    <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_1000,h_1000,c_fill,q_90/<%= producto.img %>" class="w-100 shadow-1-strong rounded-top card-image-top" alt="">
+                                                    <div class="overlay">
+                                                        <div class="text">COMPRAR</div>
+                                                    </div>
                                                 </div>
-                                                <a class="descripcion" style="background-color:rgba(0, 174, 255, 0.993) ;"><%= producto.descripcion %></a>
-                                                <span class="precio">$<%= producto.precio %></span>
-                                                <span class="Existencia">Existencia: <%= producto.cantidad %></span>
+                                                <div class="esconder">  
+                                                    <a class="descripcion" style="background-color:rgba(0, 174, 255, 0.993) ;"><%= producto.descripcion %></a>
+                                                    <span class="precio">$<%= producto.precio %></span>
+                                                    <span class="Existencia">Existencia: <%= producto.cantidad %></span>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="card-body">

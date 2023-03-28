@@ -77,6 +77,10 @@ a{
     position: relative;
 }
 
+.imagen:hover {
+    cursor: pointer;
+}
+
 .text {
     color: black;
     font-size: 1.3rem;
@@ -117,4 +121,8 @@ a{
 .fondoDisfraces {
     background: rgb(75,53,212);
     background: linear-gradient(156deg, rgba(75,53,212,0.9659090909090909) 27%, rgba(255,180,128,1) 100%);
+}
+
+.esconder {
+    display: none;
 }
