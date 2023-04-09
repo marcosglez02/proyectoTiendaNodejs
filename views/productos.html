@@ -32,63 +32,46 @@
                 </div>
                 
                     
-                        <section class="products-list" class="cotenido">
-                            
-                        <!--Diseño de despligue-->
-                        <% if(productos){%>
-                            
-
-                            <% for(let i=0;i<productos.length;i++){%> %>
-
-                                <%let estado = productos[i].estatus; %>
-                                <%if(estado==1){%>
-                                <div class="item" category="bebes" onclick="cargar(this)">
-                                    <div class="contenedor-foto">
-                                        <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_1000,h_1000,c_fill,q_90/<%= productos[i].img %>" alt="">
-                                    </div>
-                                    <a class="descripcion" style="background-color:rgba(0, 174, 255, 0.993) ;"><%= productos[i].descripcion %></a>
-                                    <span class="precio">$<%= productos[i].precio %></span>
-                                    <span class="Existencia">Existencia: <%= productos[i].cantidad %></span>
+                <section class="products-list" class="cotenido">
+                    <!--Diseño de despligue-->
+                    <% if(productos){%>
+                        <% for(let i=0;i<productos.length;i++){%> %>
+                            <%let estado = productos[i].estatus; %>
+                            <%if(estado==1){%>
+                            <div class="item" category="bebes" onclick="cargar(this)">
+                                <div class="contenedor-foto">
+                                    <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_1000,h_1000,c_fill,q_90/<%= productos[i].img %>" alt="">
                                 </div>
-                                <% } %>
-
-
-                                
-                                    <% } %>
-                                
-                                
+                                <a class="descripcion" style="background-color:rgba(0, 174, 255, 0.993) ;"><%= productos[i].descripcion %></a>
+                                <span class="precio">$<%= productos[i].precio %></span>
+                                <span class="Existencia esconder"><%= productos[i].cantidad %></span>
+                            </div>
                             <% } %>
-                    
-                    </section>
+                                <% } %>
+                        <% } %>
+                </section>
 
-
-
-
-
-
-                    
-                    
                 </form>
             
 
             <!-- ventana emergente -->
-                <!-- ventana emergente -->
                 <div class="popup-container" style="display:none">
                     <div class="popup">
                         <button class="popup-close" id="popup-close">
-                            <i class="fas fa-times"></i>
+                            <i class="fa-solid fa-square-xmark fa-2xl" style="color: #e40707;"></i>
                         </button>
                         <img class="popup-image">
                         <h2 class="popup-name"></h2>
                         <p class="popup-price"></p>
-                        <p class="popup-stock"></p>
-                        <select class="popup-size">
-                            <option value="" selected disabled>Selecciona una talla</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                        </select>
-                        <button class="popup-add">Agregar al carrito</button>
+                        <% for (var i = 0; i < productos.length; i++) { %>
+                        <p class="popup-stock"><%= productos[i].cantidad %></p>
+                        <select class="popup-size esconder">
+                                
+                                    <option value=""></option>
+                                  
+                            </select>
+                            <% } %>
+                        <button class="popup-add btn btn-primary">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
