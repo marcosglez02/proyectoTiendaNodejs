@@ -101,23 +101,20 @@
                         <% } %>
                     <% } %>
                 
-                         <!-- ventana emergente -->
-            <div class="popup-container" style="display:none">
+                <!-- ventana emergente -->
+                <div class="popup-container" style="display:none">
                 <div class="popup">
                     <button class="popup-close" id="popup-close">
-                        <i class="fas fa-times"></i>
+                        <i class="fa-solid fa-square-xmark fa-2xl" style="color: #e40707;"></i>
                     </button>
                     <img class="popup-image">
                     <h2 class="popup-name"></h2>
                     <p class="popup-price"></p>
                     <p class="popup-stock"></p>
-                    <select class="popup-size">
-                        <option value="" selected disabled>Selecciona una talla</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                    </select>
-                    <button class="popup-add">Agregar al carrito</button>
+                    <select class="popup-size esconder">
+                        <option value=""></option>
+                </select>
+                    <button class="popup-add btn btn-primary">Agregar al carrito</button>
                 </div>
             </div>
                     </div>
