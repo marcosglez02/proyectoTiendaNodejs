@@ -45,7 +45,12 @@
             </form>
 
             <form action="/login" method="get">
+              <% if(cliente==="") {%>
               <button class="btn --bs-light-text mx-2 my-3" type="submit"><i class="fa-solid fa-user"></i><br>Iniciar Sesión</button>
+              <% } else{%>
+                
+                <a class="btn --bs-light-text mx-2 my-3" href="/cerrarSesion" method="post"><i class="fa-solid fa-user"></i><br>Cerrar Sesión</a>
+              <% } %>
             </form>
           </div>
         </div>

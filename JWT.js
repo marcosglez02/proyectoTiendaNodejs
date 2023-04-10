@@ -47,3 +47,24 @@ export const eliminarJWT = (req, res, next)=>{
     res.clearCookie('Administrador')
     res.redirect('/admin/login')
 }
+
+export const validarSesion = (nombre="")=>{
+    return new Promise((resolve, reject)=>{
+        const token = nombre;
+        jwt.verify(token, TOKENS, (err, decoded) => {
+            if (err) {
+              resolve("")
+            } else {
+              // leer el payload del JWT
+              const payload = decoded;
+              resolve(payload.uid)
+            }
+          })
+
+    })
+}
+
+export const cerrarSesion = (req,res)=>{
+    res.clearCookie('Sesion')
+    res.redirect('/')
+}

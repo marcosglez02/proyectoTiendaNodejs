@@ -3,16 +3,12 @@ import { Router } from "express";
 const router = Router();
 
 import{mostrarProductos,mostrarCategorias,showCategoriasProductos} from "../controllers/productosVista.js"
+import { validarSesion } from "../JWT.js";
 router.get("/productos",mostrarProductos)
 
 
 router.get("/",showCategoriasProductos)
-router.get('/',(req,res)=>{
-    const valores={
-        titulo:"Inicio"
-       }
-        res.render('index.html',valores)
-});
+
 
 router.get('/admin/promociones',(req,res)=>{
     const valores={
@@ -27,16 +23,22 @@ router.get('/admin/ventas',(req,res)=>{
         res.render('admin/ventas.html',valores)
 });
 
-router.get('/carrito',(req,res)=>{
+router.get('/carrito', async (req,res)=>{
+const usuario = await validarSesion(req.cookies.Sesion)
+console.log(usuario)
    const valores={
-    titulo:"Carrito"
+    titulo:"Carrito",
+    cliente:usuario
    }
     res.render('carrito.html',valores)
 });
 
-router.post('/carrito',(req,res)=>{
+router.post('/carrito',async (req,res)=>{
+    const usuario = await validarSesion(req.cookies.Sesion)
+    console.log(usuario)
     const valores={
-        titulo:"Carrito"
+        titulo:"Carrito",
+        cliente:usuario
        }
         res.render('carrito.html',valores)
 });
@@ -60,16 +62,20 @@ router.post('/carrito',(req,res)=>{
  });
 
 
- router.get('/Contactos',(req,res)=>{
+ router.get('/Contactos',async (req,res)=>{
+    const usuario = await validarSesion(req.cookies.Sesion)
     const valores={
-     titulo:"Contactos"
+     titulo:"Contactos",
+     cliente:usuario
     }
      res.render('contactos.html',valores)
  });
  
- router.post('/Contactos',(req,res)=>{
+ router.post('/Contactos', async(req,res)=>{
+    const usuario = await validarSesion(req.cookies.Sesion)
      const valores={
-         titulo:"Contactos"
+         titulo:"Contactos",
+         cliente:usuario
         }
          res.render('contactos.html',valores)
  });
@@ -92,16 +98,20 @@ router.post('/carrito',(req,res)=>{
 
 
 
- router.get('/Nosotros',(req,res)=>{
+ router.get('/Nosotros', async(req,res)=>{
+    const usuario = await validarSesion(req.cookies.Sesion)
     const valores={
-     titulo:"Nosotros"
+     titulo:"Nosotros",
+     cliente:usuario
     }
      res.render('Nosotros.html',valores)
  });
  
- router.post('/Nosotros',(req,res)=>{
+ router.post('/Nosotros',async(req,res)=>{
+    const usuario = await validarSesion(req.cookies.Sesion)
      const valores={
-         titulo:"Nosotros"
+         titulo:"Nosotros",
+         cliente:usuario
         }
          res.render('Nosotros.html',valores)
  });

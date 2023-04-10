@@ -24,32 +24,7 @@
                     <h3><%=encabezado%></h3>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" required="true">
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Apellidos" name="apellidos" id="apellidos" required="true">
-                            
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-home"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Direccion de domicilio" name="domicilio" id="domicilio" required="true">
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                            </div>
-                            <input type="number" class="form-control" placeholder="Telefono" name="telefono" id="telefono" required="true">
-                        </div>
+                    <form action="/registroUsuarios" method="post">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -59,35 +34,55 @@
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Nombre(s)" name="nombreUsuario" id="nombre" required="true">
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Apellido(s)" name="apellidoUsuario" id="apellidos" required="true">
+                            
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-home"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Domicilio" name="domicilioUsuario" id="domicilio" required="true">
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="Teléfono" name="telefonoUsuario" id="telefono" required="true">
+                        </div>
+                        
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-at"></i></span>
                             </div>
-                            <input type="email" class="form-control" placeholder="example@gmail.com" name="correo" id="correo" required="true">
+                            <input type="email" class="form-control" placeholder="Correo electrónico (example@gmail.com)" name="correoUsuario" id="correo" required="true">
                             
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Contraseña" onkeyup="validar()" name="contra" id="contra" required="true">
+                            <input type="password" class="form-control" placeholder="Contraseña" onkeyup="validar()" name="contraseñaUsuario" id="contra" required="true">
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i><i class="fa fa-check"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Confirmar Contraseña" onkeyup="validar()" name="ccontra" id="ccontra" required="true">
+                            <input type="password" class="form-control" placeholder="Confirmar Contraseña" onkeyup="validar()" name="contraConfirmar" id="ccontra" required="true">
                             
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Registro" class="btn float-right login_btn">
                         </div>
                     </form>
-                        <br> <br>
-                        <h4 style="color:white; text-align: center;">Registrate con</h4>
-                        <div class="d-flex justify-content-center social_icon">
-                            <span><i class="fab fa-facebook-square"></i></span>
-                            <span><i class="fab fa-google-plus-square"></i></span>
-                            <span><i class="fab fa-twitter-square"></i></span>
-                        </div>
+                        
                 </div>
                 
             </div>

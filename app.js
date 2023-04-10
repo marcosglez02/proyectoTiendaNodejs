@@ -9,11 +9,12 @@ import cookieParser from 'cookie-parser';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 
+app.use(cookieParser());
 app.set("view engine","ejs");
 app.engine('html', ejs.renderFile);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyparser.urlencoded({extended:true}));
-app.use(cookieParser());
+
 // Rutas
 import adminCategorias from "./router/categorias.js"
 import adminProductos from "./router/productos.js"
