@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/fontawesome/css/fontawesome.css">
+    <script src="https://kit.fontawesome.com/ae606561a5.js" crossorigin="anonymous"></script>
+    <title>Autentificación de usuario</title>
+</head>
+<body>
+    <div class="bg-warning text-center py-4">
+            <h2>Bienvenido a la página de autenticación de Disfraces Trueno</h2>
+    </div>
+    <div class="container text-center mt-2">
+        <div class="row">
+            <div class="col pt-4">
+                <h3>Iniciar Sesión</h3>
+                <img src="../img/login.webp" alt=""width="20%">
+                <form action="/admin/productos" method="post">
+                    <div class="form-group mt-3">
+                        <label for="">Usuario</label>
+                        <input type="text" name="usuario" id="txtUsuario"
+                        class="form-control" placeholder="Introduce el usuario">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="txtPassword">Contraseña</label>
+                        <input type="password" name="contraseña" id="txtPassword"
+                        class="form-control" placeholder="Contraseña">
+                    </div>
+                    <button type="reset" class="btn btn-outline-primary m-4">Limpiar
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-outline-danger m-4" type="submit" id="btnInicioSesion">Iniciar Sesión
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </form>
+                <br>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
