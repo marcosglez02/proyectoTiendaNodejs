@@ -84,23 +84,23 @@ var filters = [];
 	document.querySelector('.popup-stock').textContent = 'Existencia: ' + stock;
 	document.querySelector('.popup-container').style.display = 'block';
   
-	// Agregar evento click para agregar al carrito
-	document.querySelector('.popup-add').addEventListener('click', function() {
-	  var talla = document.querySelector('.popup-size').value;
-	  if (talla) {
-		// Agregar el producto al carrito con la talla seleccionada
-		// ...
-		console.log('Producto agregado al carrito:', nombre, talla);
-		// Cerrar la ventana emergente
-		document.querySelector('.popup-container').style.display = 'none';
-	  } else {
-		alert('Por favor selecciona una talla.');
-	  }
-	});
+	
  
   
 	document.querySelector('.popup-close').addEventListener('click', function() {
 		document.querySelector('.popup-container').style.display = 'none';
 	});
+
+  
+  const selectCantidad = document.querySelector('.popup-size');
+const cantidadPersonalizada = document.querySelector('.cantidad-personalizada');
+
+selectCantidad.addEventListener('change', () => {
+    if (selectCantidad.value === 'personalizado') {
+        cantidadPersonalizada.classList.remove('esconder');
+    } else {
+        cantidadPersonalizada.classList.add('esconder');
+    }
+});
 }
 

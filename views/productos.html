@@ -4,7 +4,7 @@
     
 
     <div class="fondoDisfraces">
-        <form action="/insertarProducto" method="post" enctype="multipart/form-data"></form>
+        <form action="/insertarProducto" method="post" enctype="multipart/form-data">
         <br>
         <div class="wrap">
             <h1 class="display-1 text-dark">Escoge un disfraz</h1>
@@ -55,27 +55,36 @@
             
 
             <!-- ventana emergente -->
-                <div class="popup-container" style="display:none">
-                    <div class="popup">
-                        <button class="popup-close" id="popup-close">
-                            <i class="fa-solid fa-square-xmark fa-2xl" style="color: #e40707;"></i>
-                        </button>
-                        <img class="popup-image">
-                        <h2 class="popup-name"></h2>
-                        <p class="popup-price"></p>
-                        <% for (var i = 0; i < productos.length; i++) { %>
-                        <p class="popup-stock"><%= productos[i].cantidad %></p>
-                        <select class="popup-size esconder">
-                                
-                                    <option value=""></option>
-                                  
-                            </select>
-                            <% } %>
-                        <button class="popup-add btn btn-primary">Agregar al carrito</button>
-                    </div>
+            <div class="popup-container" style="display:none">
+                <div class="popup">
+                    <button class="popup-close" id="popup-close">
+                        <i class="fa-solid fa-square-xmark fa-2xl" style="color: #e40707;"></i>
+                    </button>
+                    <img class="popup-image">
+                    <h2 class="popup-name"></h2>
+                    <p class="popup-price"></p>
+                    <% for (var i = 0; i < productos.length; i++) { %>
+                    <p class="popup-stock"></p>
+                    <% } %>
+                    <select class="popup-size ">
+                        <option value="" disabled selected>Seleccione cantidad de productos:</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="personalizado">Cantidad personalizada</option>
+                    </select>
+                    <input type="number" class="cantidad-personalizada esconder" min="1" max="100" placeholder="Ingrese cantidad">
+                        
+                    <br>
+                    <br>
+                    <button class="popup-add btn btn-primary">Agregar al carrito</button>
                 </div>
             </div>
         </div>
+    </div>
+
 
 
 
