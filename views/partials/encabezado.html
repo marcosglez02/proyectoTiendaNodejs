@@ -37,19 +37,22 @@
                 <a class="nav-link <%if(titulo == 'Productos'){%>active<%}%>" href="/Productos">Productos</a>
               </li>
             </ul>
-            <form class="d-flex" action="/carrito" method="post">
-              
-              <!--Icono de carrito-->
-              <button class="btn --bs-light-text mx-2 my-3" type="submit"><i class="fa-solid fa-cart-shopping"></i></button>
-             
-            </form>
+            
 
             <form action="/login" method="get">
               <% if(cliente==="") {%>
               <button class="btn --bs-light-text mx-2 my-3" type="submit"><i class="fa-solid fa-user"></i><br>Iniciar Sesión</button>
               <% } else{%>
                 
-                <a class="btn --bs-light-text mx-2 my-3" href="/cerrarSesion" method="post"><i class="fa-solid fa-user"></i><br>Cerrar Sesión</a>
+                <a class="btn --bs-light-text mx-2 my-3" href="/cerrarSesion" method="post"><i class="fa-sharp fa-solid fa-door-open"></i><br>salir<br></a>
+                <a class="btn --bs-light-text mx-2 my-3"><i class="fa-solid fa-user"></i><br>Bienvenido <br><%=cliente%></a>
+                <a class="btn --bs-light-text mx-2 my-3"><i class="fa-solid fa-cart-shopping"></i></i><br> Compras <br></a>
+                <form class="d-flex" action="/carrito" method="post">
+              
+                  <!--Icono de carrito-->
+
+                 
+                </form>
               <% } %>
             </form>
           </div>
