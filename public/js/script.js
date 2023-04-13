@@ -71,6 +71,9 @@ var filters = [];
       function mostrarProducto(idProducto) {
         window.location.href = "/productosClic" + idProducto;
     }
+    function mostrarProducto(idProducto) {
+      window.location.href = "/productosClic" + idProducto;
+  }
 
   function cargar(elemento) {
 	// Obtener los datos del producto seleccionado

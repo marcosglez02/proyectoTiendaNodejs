@@ -59,20 +59,18 @@ export const mostrarCategorias = async (req, res) => {
 };
 
 
-  export const productosClic = async (req, res) => {
-    const idProducto= req.body.idProducto
-  
-    const [rows] = await pool.query("select * from productos where idProducto = ?",[idProducto]);
-  
-    const usuario = await validarSesion(req.cookies.Sesion)
-    console.log(usuario)
-    res.render("productos.html", {
-      productos: rows,
-      categorias: categorias,
-      titulo: "Productos",
-      cliente:usuario
-    });
-   
+export const productosClic = async (req, res) => {
+  const idProducto= req.body.idProducto
 
-  };
+  const [rows] = await pool.query("select * from productos where idProducto = ?",[idProducto]);
+  console.log(rows);
 
+  const usuario = await validarSesion(req.cookies.Sesion)
+  console.log(usuario)
+  res.render("productosClic.html", {
+    productos: rows, // agregar la variable productos aquí
+    titulo: "Mostrar producto",
+    cliente:usuario
+  });
+};
+//

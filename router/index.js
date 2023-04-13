@@ -2,7 +2,7 @@
 import { Router } from "express";
 const router = Router();
 
-import{mostrarProductos,mostrarCategorias,showCategoriasProductos} from "../controllers/productosVista.js"
+import{mostrarProductos,mostrarCategorias,showCategoriasProductos,productosClic} from "../controllers/productosVista.js"
 import { validarSesion } from "../JWT.js";
 router.get("/productos",mostrarProductos)
 
@@ -165,20 +165,20 @@ router.post('/carrito',async (req,res)=>{
  });
 
 
- router.get('/productosClic',(req,res)=>{
-    const usuario = "Nombre del usuario"; 
+ router.get('/productosClic',async(req,res)=>{
+    const usuario = await validarSesion(req.cookies.Sesion)
     const valores={
-        titulo:"Clic",
+        titulo:"Mostrar producto",
         cliente:usuario
 
     }
      res.render('productosClic.html',valores)
  });
  
- router.post('/productosClic',(req,res)=>{
-    const usuario = "Nombre del usuario"; // Definición del usuario
+ router.post('/productosClic',async(req,res)=>{
+    const usuario = await validarSesion(req.cookies.Sesion)
     const valores={
-        titulo:"Clic",
+        titulo:"Mostrar producto",
         cliente:usuario
     }
     res.render('productosClic.html',valores)

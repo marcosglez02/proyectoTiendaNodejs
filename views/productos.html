@@ -38,9 +38,9 @@
 
                                 <form action="/productosClic" method="post">
                                 
-                                    <span class="idProducto esconder"><%= productos[i].idProducto %></span>
+                                    <span class="esconder" name="idProductos"><%= productos[i].idProducto %></span>
 
-                                    <button type="submit"></button>
+                                    <button type="submit" onclick="cargar(this)"></button>
                                     <div class="item" category="bebes" onclick="cargar(this)">
                                         <div class="contenedor-foto">
                                             <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_1000,h_1000,c_fill,q_90/<%= productos[i].img %>"  alt="">
