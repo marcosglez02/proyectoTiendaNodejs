@@ -163,4 +163,26 @@ router.post('/carrito',async (req,res)=>{
         }
          res.render('recu.html',valores)
  });
+
+
+ router.get('/productosClic',(req,res)=>{
+    const usuario = "Nombre del usuario"; 
+    const valores={
+        titulo:"Clic",
+        cliente:usuario
+
+    }
+     res.render('productosClic.html',valores)
+ });
+ 
+ router.post('/productosClic',(req,res)=>{
+    const usuario = "Nombre del usuario"; // Definición del usuario
+    const valores={
+        titulo:"Clic",
+        cliente:usuario
+    }
+    res.render('productosClic.html',valores)
+});
+
+
 export default router;

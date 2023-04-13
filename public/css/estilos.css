@@ -126,3 +126,63 @@ a{
 .esconder {
     display: none;
 }
+
+
+
+ /* Estilos para el contenedor principal */
+ #contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  /* Estilos para la primera parte (izquierda) */
+  #izquierda {
+    flex-basis: 100%;
+    padding: 10px;
+  }
+  
+  /* Estilos para la segunda parte (centro) */
+  #centro {
+    flex-basis: 100%;
+    padding: 10px;
+  }
+  
+  /* Estilos para la tercera parte (derecha) */
+  #derecha {
+    flex-basis: 100%;
+    padding: 10px;
+  }
+  
+  /* Estilos para la ventana de información */
+  #informacion {
+    border: 2px solid black;
+    padding: 10px;
+  }
+  
+  /* Media queries para pantallas pequeñas */
+  @media screen and (max-width: 767px) {
+    #contenedor {
+      flex-direction: column;
+    }
+    
+    #izquierda, #centro, #derecha {
+      flex-basis: 100%;
+    }
+  }
+  
+  /* Media queries para pantallas medianas y grandes */
+  @media screen and (min-width: 768px) {
+    #izquierda {
+      flex-basis: 30%;
+    }
+    
+    #centro {
+      flex-basis: 40%;
+    }
+    
+    #derecha {
+      flex-basis: 30%;
+    }
+  }

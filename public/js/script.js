@@ -68,7 +68,9 @@ var filters = [];
       });
 
  
-
+      function mostrarProducto(idProducto) {
+        window.location.href = "/productosClic" + idProducto;
+    }
 
   function cargar(elemento) {
 	// Obtener los datos del producto seleccionado
@@ -92,15 +94,6 @@ var filters = [];
 	});
 
   
-  const selectCantidad = document.querySelector('.popup-size');
-const cantidadPersonalizada = document.querySelector('.cantidad-personalizada');
-
-selectCantidad.addEventListener('change', () => {
-    if (selectCantidad.value === 'personalizado') {
-        cantidadPersonalizada.classList.remove('esconder');
-    } else {
-        cantidadPersonalizada.classList.add('esconder');
-    }
-});
+ 
 }
 
