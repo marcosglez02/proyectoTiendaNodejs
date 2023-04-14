@@ -2,7 +2,7 @@
 import { Router } from "express";
 const router = Router();
 
-import{mostrarProductos,mostrarCategorias,showCategoriasProductos,productosClic} from "../controllers/productosVista.js"
+import{mostrarProductos,mostrarCategorias,showCategoriasProductos} from "../controllers/productosVista.js"
 import { validarSesion } from "../JWT.js";
 router.get("/productos",mostrarProductos)
 
@@ -25,7 +25,7 @@ router.get('/admin/ventas',(req,res)=>{
 
 router.get('/carrito', async (req,res)=>{
 const usuario = await validarSesion(req.cookies.Sesion)
-console.log(usuario)
+
    const valores={
     titulo:"Carrito",
     cliente:usuario
@@ -35,7 +35,7 @@ console.log(usuario)
 
 router.post('/carrito',async (req,res)=>{
     const usuario = await validarSesion(req.cookies.Sesion)
-    console.log(usuario)
+    
     const valores={
         titulo:"Carrito",
         cliente:usuario

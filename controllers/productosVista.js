@@ -6,7 +6,7 @@ export const mostrarProductos = async (req, res) => {
   const [categorias] = await pool.query("select * from categorias");
 
   const usuario = await validarSesion(req.cookies.Sesion)
-  console.log(usuario)
+  
   res.render("productos.html", {
     productos: rows,
     categorias: categorias,
@@ -35,7 +35,7 @@ export const mostrarCategorias = async (req, res) => {
     const [categorias] = await pool.query("select * from categorias");
 
     const usuario = await validarSesion(req.cookies.Sesion)
-    console.log(usuario)
+    
     if(idCategoria=="#"){
       const [rows] = await pool.query("select * from productos");
       res.render("productos.html", {
@@ -59,18 +59,4 @@ export const mostrarCategorias = async (req, res) => {
 };
 
 
-export const productosClic = async (req, res) => {
-  const idProducto= req.body.idProducto
 
-  const [rows] = await pool.query("select * from productos where idProducto = ?",[idProducto]);
-  console.log(rows);
-
-  const usuario = await validarSesion(req.cookies.Sesion)
-  console.log(usuario)
-  res.render("productosClic.html", {
-    productos: rows, // agregar la variable productos aquí
-    titulo: "Mostrar producto",
-    cliente:usuario
-  });
-};
-//
