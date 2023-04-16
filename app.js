@@ -20,6 +20,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 // Rutas
 import adminCategorias from "./router/categorias.js"
 import adminProductos from "./router/productos.js"
+import adminVentas from "./router/ventas.js"
 import productosVista from "./router/productosVista.js"
 import autentificacion from "./router/autentificación.js"
 import carrito from "./router/carrito.js"
@@ -29,6 +30,7 @@ import ruta from "./router/index.js"
 app.use(adminCategorias);
 app.use(ruta);
 app.use(adminProductos);
+app.use(adminVentas);
 app.use(productosVista);
 app.use(autentificacion);
 app.use(carrito)

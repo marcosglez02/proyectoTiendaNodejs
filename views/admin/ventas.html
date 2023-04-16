@@ -1,2 +1,35 @@
 <%-include('partials/encabezado.html');%>
-<h1>Ventas</h1>
+<div class="container">
+
+
+<h2 class="text-center mt-4">Todas las ventas</h2>
+    <table class="table text-center table-light table-hover table-bordered mt-2 mb-5 caption-top">
+        <thead>
+          <tr>
+            <th scope="col">Id venta</th>
+            <th scope="col">Id Usuario</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Total</th>
+            <th scope="col">Tipo de pago</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+    <% if(ventas){%>
+        <% for(let i=0;i<ventas.length;i++){%>
+            <tr>
+                <td> <%= ventas[i].idVenta %></td>
+                <td> <%= ventas[i].idUsuario %></td>
+                <td> <%= ventas[i].fecha %></td>
+                <td> <%= ventas[i].totalCompra %></td>
+                <td> <%= ventas[i].pago %></td>
+                <td>
+                    <a href="/admin/ventas/informacion/<%= ventas[i].idVenta %>" class="btn btn-warning">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        Mas información</a>
+                </td>
+              </tr>
+       <% } %>
+    <%} %>
+</tbody>
+</table>
+</div>

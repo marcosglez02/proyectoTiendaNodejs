@@ -1,0 +1,55 @@
+<%-include('partials/encabezado.html');%>
+<div class="container">
+   
+        <h1 class="text-center">Información de la venta</h1>
+        <h2>Información cliente</h2>
+        <table class="table text-center table-light table-hover table-bordered mt-2 mb-5 caption-top">
+            <thead>
+              <tr>
+                <th scope="col">Id Usuario</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Estatus</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+        <% if(usuario){%>
+            
+                <tr>
+                    <td> <%= usuario.idUsuario %></td>
+                    <td> <%= usuario.usuario %></td>
+                    <td> <%= usuario.nombreUsuario %></td>
+                    <td> <%= usuario.correoUsuario %></td>
+                    <td> <%= usuario.estado %></td>
+                  </tr>
+           
+        <%} %>
+    </tbody>
+    </table>
+    <h2>Detalles de la venta</h2>
+    <table class="table text-center table-light table-hover table-bordered mt-2 mb-5 caption-top align-middle">
+        <thead>
+          <tr>
+            <th scope="col">Imágen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Cantidad</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+    <% if(detalleVenta){%>
+        <% for(let i=0;i<detalleVenta.length;i++){%>
+            <tr>
+                <td> <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_120,h_120,c_fill,q_90/<%= detalleVenta[i].img %>" alt=""></td>
+                <td> <%= detalleVenta[i].nombreProducto %></td>
+                <td> $<%= detalleVenta[i].precio %></td>
+                <td> <%= detalleVenta[i].nombreCategoria %></td>
+                <td> <%= detalleVenta[i].cantidad %></td>
+              </tr>
+       <% } %>
+    <%} %>
+</tbody>
+</table>
+</div>

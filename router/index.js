@@ -16,12 +16,7 @@ router.get('/admin/promociones',(req,res)=>{
        }
         res.render('admin/promociones.html',valores)
 });
-router.get('/admin/ventas',(req,res)=>{
-    const valores={
-        titulo:"Ventas"
-       }
-        res.render('admin/ventas.html',valores)
-});
+
 
 router.get('/carrito', async (req,res)=>{
 const usuario = await validarSesion(req.cookies.Sesion)
