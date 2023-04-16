@@ -79,7 +79,7 @@
                             
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Registro" class="btn float-right login_btn">
+                            <input id="boton" onmouseover="validarDatos()" type="submit" value="Registro" class="btn float-right login_btn">
                         </div>
                     </form>
                         
@@ -101,5 +101,37 @@
         }
         
     };
+
+    function validarDatos() {
+        var boton = document.getElementById("boton");
+
+        var usuario = document.getElementById("usuario");
+        var nombre = document.getElementById("nombre");
+        var apellidos = document.getElementById("apellidos");
+        var domicilio = document.getElementById("domicilio");
+        var telefono = document.getElementById("telefono");
+        var correo = document.getElementById("correo");
+        var contra = document.getElementById("contra");
+        var ccontra = document.getElementById("ccontra");
+
+        if (usuario.value === "" ) {
+            alert("Por favor ingrese un nombre de usuario");
+        } else if (nombre.value === "" ) {
+            alert("Por favor ingrese su(s) nombre(s)");
+        } else if (apellidos.value === "" ) {
+            alert("Por favor ingrese su(s) apellido(s)");
+        } else if (domicilio.value === "" ) {
+            alert("Por favor ingrese su domicilio");
+        } else if (telefono.value === "" ) {
+            alert("Por favor ingrese su número de teléfono");
+        } else if (correo.value === "" ) {
+            alert("Por favor ingrese su correo electrónico");
+        } else if (contra.value === "" ) {
+            alert("Por favor ingrese una contraseña");
+        } else if (contra.value != ccontra.value) {
+            alert("Las contraseñas no coinciden");
+        }
+    }
+
 </script>
 </html>

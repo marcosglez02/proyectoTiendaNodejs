@@ -41,49 +41,45 @@ export const registroUsuarios = async(req,res)=>{
     // Cambiar returns a un limpiar, y añadirles un alert para el usuario
 
     if(req.body.usuario == 0){
-      return res.redirect('/registro'),
+      return res.status(400).send("Ingrese un usuario, no puede estar vacío."),
       console.log("Ingrese un usuario, no puede estar vacío.")
-    } 
-
-    if(req.body.nombreUsuario == 0){
-      return res.redirect('/registro'),
+    } else if(req.body.nombreUsuario == 0){
+      return res.status(400).send("Ingrese su nombre, no puede estar vacío."),
       console.log("Ingrese su nombre, no puede estar vacío.")
-    } 
-
-    if(req.body.apellidoUsuario == 0){
-      return res.redirect('/registro'),
+    } else if(req.body.apellidoUsuario == 0){
+      return res.status(400).send("Ingrese su apellido, no puede estar vacío."),
       console.log("Ingrese su apellido, no puede estar vacío.")
-    } 
-
-    if(req.body.contraseñaUsuario != req.body.contraConfirmar){
-      return res.redirect('/registro'),
+    } else if(req.body.telefonoUsuario == 0){
+      return res.status(400).send("Ingrese su número telefónico, no puede estar vacío."),
+      console.log("Ingrese su número telefónico, no puede estar vacío.")
+    } else if(req.body.correoUsuario == 0){
+      return res.status(400).send("Ingrese su correo electrónico, no puede estar vacío."),
+      console.log("Ingrese su correo electrónico, no puede estar vacío.")
+    } else if(req.body.contraseñaUsuario == 0){
+      return res.status(400).send("Ingrese su contraseña, no puede estar vacía."),
+      console.log("Ingrese su contraseña, no puede estar vacía.")
+    } else if(req.body.domicilioUsuario == 0){
+      return res.status(400).send("Ingrese su domicilio, no puede estar vacío."),
+      console.log("Ingrese su domicilio, no puede estar vacío.")
+    } else if(req.body.contraseñaUsuario != req.body.contraConfirmar){
+      return res.status(400).send("Contraseñas diferentes."),
       console.log("Contraseñas diferentes.")
-    } 
-
-    if(req.body.contraseñaUsuario.length < 5){
-      return res.redirect('/registro'),
+    } else if(req.body.contraseñaUsuario.length < 5){
+      return res.status(400).send("La contraseña no puede ser menor de 5 carácteres."),
       console.log("La contraseña no puede ser menor de 5 carácteres.")
-    } 
-
-    if(req.body.contraseñaUsuario.length > 20){
-      return res.redirect('/registro'),
+    } else if(req.body.contraseñaUsuario.length > 20){
+      return res.status(400).send("La contraseña no puede ser mayor a 20 carácteres."),
       console.log("La contraseña no puede ser mayor a 20 carácteres.")
-    } 
-
-    if(req.body.telefonoUsuario.length < 10){
-      return res.redirect('/registro'),
-      console.log("El teléfono no puede ser menor de 10 dígitos (tiene que ser de 10).")
-    } 
-    
-    if(req.body.telefonoUsuario.length > 10){
-      return res.redirect('/registro'),
-      console.log("El teléfono no puede ser mayor de 10 dígitos (tiene que ser de 10).")
-    } 
-
-  await pool.query("insert into usuarios set ?", [nuevoUsuario])
-  res.redirect('/')
+    } else if(req.body.usuario.length > 20){
+      return res.status(400).send("El nombre del usuario no puede ser mayor a 20 carácteres."),
+      console.log("El nombre del usuario no puede ser mayor a 20 carácteres.")
+    } else {
+      await pool.query("insert into usuarios set ?", [nuevoUsuario])
+      res.redirect('/')
+    }
   }catch(error){
     res.status(400).send("Sucedió un error")
+    console.log(error)
   }
 }
 
