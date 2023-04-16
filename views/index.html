@@ -66,57 +66,32 @@
                 <div class="row">
                     <h2 class="display-2 text-center mb-3">Productos destacados</h2>
                     <% if(productos){%>
-                        <% let n = 0 %>
-                        <% let anterior = null %>
-                        <% while(n < productos.length){ %>
-                            <% let producto = productos[n] %>
-                            <% let estado = producto.estatus %>
-                            <% if(estado==1 && producto != anterior){ %>
-                                <div class="col-4">
-                                    <div class="card mb-4 border border-secondary">
-                                        <div class="hover-card">
-                                            <!--Diseño de despligue-->
-                                            <div class="item" category="bebes" onclick="cargar(this)">   
-                                                <div class="imagen">
-                                                    <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_1000,h_1000,c_fill,q_90/<%= producto.img %>" class="w-100 shadow-1-strong rounded-top card-image-top" alt="">
-                                                    <div class="overlay">
-                                                        <div class="text">COMPRAR</div>
-                                                    </div>
-                                                </div>
-                                                <div class="esconder">  
-                                                    <a class="descripcion" style="background-color:rgba(0, 174, 255, 0.993) ;"><%= producto.descripcion %></a>
-                                                    <span class="precio">$<%= producto.precio %></span>
-                                                    <span class="Existencia">Existencia: <%= producto.cantidad %></span>
-                                                </div>
-                                            </div>
+                        <% for(let i=0;i<productos.length;i++){%> %>
+                            <%let estado = productos[i].estatus; %>
+                            <%if(estado==1){%>
+                                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3">
+                                    <div class="card bg-light mx-1 h-100">
+                                        <img src="http://res.cloudinary.com/dpxkp2hie/image/upload/w_1000,h_1000,c_fill,q_90/<%= productos[i].img %>" class="card-img-top">
+                                        <div class="card-body pb-2 position-relative">
+                                            <h5 class="card-title my-0 text-center"><%= productos[i].nombreProducto  %></h5>
+                                            <p class="card-text my-2"><%= productos[i].descripcion %></p>
+                                            <p>$<%= productos[i].precio  %></p>
+                                            
                                         </div>
-                                        <div class="card-body">
-                                            <p class="card-text"><%= producto.descripcion %></p>
+                                        <div class="card-footer text-end">
+                                            <a class="btn btn-success" onclick="añadirAlCarrito('<%= productos[i].idProducto  %>')">
+                                                <span>Añadir al carrito</span>
+                                                <i class="fa-solid fa-cart-plus"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                                <% anterior = producto %>
+                        
+                                    
                             <% } %>
-                            <% n++ %>
                         <% } %>
                     <% } %>
                 
-                <!-- ventana emergente -->
-                <div class="popup-container" style="display:none">
-                <div class="popup">
-                    <button class="popup-close" id="popup-close">
-                        <i class="fa-solid fa-square-xmark fa-2xl" style="color: #e40707;"></i>
-                    </button>
-                    <img class="popup-image">
-                    <h2 class="popup-name"></h2>
-                    <p class="popup-price"></p>
-                    <p class="popup-stock"></p>
-                    <select class="popup-size esconder">
-                        <option value=""></option>
-                </select>
-                    <button class="popup-add btn btn-primary">Agregar al carrito</button>
-                </div>
-            </div>
                     </div>
                 </div>
             </div>
