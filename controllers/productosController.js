@@ -1,5 +1,6 @@
 import { pool } from "../db.js";
 import cloudinary from "../cloudinary.js";
+import fs from "fs"
 export const mostrarProductos = async (req, res) => {
   const [rows] = await pool.query("select * from productos");
   const [categorias] = await pool.query("select * from categorias");
@@ -39,7 +40,7 @@ export const insertarProductos = async (req, res) => {
     const url = `${uploaded.public_id}.${uploaded.format}`; // Se obtienenla URL de la imagen en Cloudinary
     console.log(url)
     const nuevoProducto = {
-      idProducto: req.body.idProducto,
+      idProducto: req.insertidProducto,
       nombreProducto: req.body.nombreProducto,
       descripcion: req.body.descripcion,
       cantidad: parseInt(req.body.cantidad),

@@ -10,14 +10,6 @@ router.get("/productos",mostrarProductos)
 router.get("/",showCategoriasProductos)
 
 
-router.get('/admin/promociones',(req,res)=>{
-    const valores={
-        titulo:"Promociones"
-       }
-        res.render('admin/promociones.html',valores)
-});
-
-
 router.get('/carrito', async (req,res)=>{
 const usuario = await validarSesion(req.cookies.Sesion)
 
@@ -37,8 +29,6 @@ router.post('/carrito',async (req,res)=>{
        }
         res.render('carrito.html',valores)
 });
-
-
 
 
 
@@ -112,20 +102,6 @@ router.post('/carrito',async (req,res)=>{
  });
 
 
- router.get('/pago',(req,res)=>{
-    const valores={
-     titulo:"pago"
-    }
-     res.render('pago.html',valores)
- });
- 
- router.post('/pago',(req,res)=>{
-     const valores={
-         titulo:"pago"
-        }
-         res.render('pago.html',valores)
- });
-
  router.get('/registro',(req,res)=>{
     const valores={
      titulo:"registro",
@@ -142,22 +118,6 @@ router.post('/carrito',async (req,res)=>{
          res.render('registro.html',valores)
  });
 
-
- router.get('/recu',(req,res)=>{
-    const valores={
-     titulo:"recu",
-     encabezado:"Recuperar contraseña"
-    }
-     res.render('recu.html',valores)
- });
- 
- router.post('/recu',(req,res)=>{
-     const valores={
-         titulo:"recu",
-         encabezado:"recu"
-        }
-         res.render('recu.html',valores)
- });
 
 
  router.get('/productosClic',async(req,res)=>{
