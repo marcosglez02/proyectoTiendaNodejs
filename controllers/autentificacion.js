@@ -60,7 +60,7 @@ try{
   if (contraseña != resultado[0].contraseñaUsuario) {
     return res.status(400).send("Usuario y/o contraseña incorrectos");
   }else{
-    const token = await generarJWT(resultado[0].usuario)
+    const token = await generarJWT(resultado[0].idUsuario)
     res.cookie("Sesion",token)
 
     res.redirect('/')

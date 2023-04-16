@@ -1,4 +1,3 @@
-
 function añadirAlCarrito(idProducto) {
   try {
     let carrito = localStorage.getItem("Carrito de compras");
@@ -45,7 +44,7 @@ function añadirAlCarrito(idProducto) {
   }
 }
 
-function cambiarCantidad(index) {
+function cambiarCantidad(indice) {
 	// Obtención de carrito de localStorage
 	let carrito = localStorage.getItem("Carrito de compras");
 
@@ -56,23 +55,23 @@ function cambiarCantidad(index) {
 		return mostrarCarrito();
 	}
 
-	if (isNaN(carrito[index].cantidad)) {
-		carrito[index].cantidad = 1;
+	if (isNaN(carrito[indice].cantidad)) {
+		carrito[indice].cantidad = 1;
 		return localStorage.setItem("Carrito de compras", JSON.stringify(carrito));
 	}
 
-	carrito[index].cantidad = parseInt(document.querySelectorAll(".contador")[index].value);
-  let disponibilidad = parseInt( document.querySelectorAll(".disponibilidadItem")[index].innerHTML)
+	carrito[indice].cantidad = parseInt(document.querySelectorAll(".contador")[indice].value);
+  let disponibilidad = parseInt( document.querySelectorAll(".disponibilidadItem")[indice].innerHTML)
 
   console.log(disponibilidad)
-	if (carrito[index].cantidad >= disponibilidad) {
-		carrito[index].cantidad = disponibilidad;
-	} else if (carrito[index].cantidad <= 0 || isNaN(carrito[index].cantidad)) {
-		carrito[index].cantidad = 1
+	if (carrito[indice].cantidad >= disponibilidad) {
+		carrito[indice].cantidad = disponibilidad;
+	} else if (carrito[indice].cantidad <= 0 || isNaN(carrito[indice].cantidad)) {
+		carrito[indice].cantidad = 1
 	}
 
-	document.querySelectorAll(".contador")[index].setAttribute("value", carrito[index].cantidad);
-	document.querySelectorAll(".contador")[index].value = carrito[index].cantidad;
+	document.querySelectorAll(".contador")[indice].setAttribute("value", carrito[indice].cantidad);
+	document.querySelectorAll(".contador")[indice].value = carrito[indice].cantidad;
 
 	// Guardar carrito en el localStorage
 	localStorage.setItem("Carrito de compras", JSON.stringify(carrito));
@@ -103,6 +102,43 @@ function eliminarProducto(indice) {
 	}
 }
 
+function vaciarCarrito(){
+  localStorage.setItem("Carrito de compras","[]")
+  mostrarCarrito()
+}
+
+async function realizarCompra(){
+  try{
+    // Obtenemos el carrito del localStorage
+    let carrito = localStorage.getItem("Carrito de compras");
+
+    // Obtenemos el método de pago
+    let pago = document.getElementById('#tipoPago').value
+
+    // validamos el método de pago
+    if(pago!="Crédito" && pago!="Débito"){
+      return alert("Introduce un método de pago válido")
+    }
+
+    // Realización de la venta
+    const res = await axios.post('/realizarCompra', {
+			carrito,
+			pago
+		}, {
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		});
+    
+    // Mostramos un mensaje al usuario
+    alert("Muchas gracias por su compra")
+    vaciarCarrito()
+
+  }catch(error){
+    alert("Hubo un error" + error)
+  }
+  
+}
 
 async function mostrarCarrito() {
   // Obtenemos el carrito del localstorage
@@ -130,25 +166,8 @@ async function mostrarCarrito() {
 
   // En caso de tener productos los mostraremos en la página
   contenido.innerHTML = `
-    <div class="row">
+  <div class="row">
         <h2 class="text-center">No olvides adquirir tus productos</h2>
-    </div>
-    <div class="row">
-        <div class="col-12 col-md-6 mb-2 mb-md-0">
-            <label for="pago" class="form-label">Método de pago</label>
-            <select class="form-select" id="tipoPago">
-                <option disabled selected>Seleccione un método de pago</option>
-                <option value="Crédito">Crédito</option>
-                <option value="Débito">Débito</option>
-            </select>
-        </div>
-        <div class="col-12 col-md-6 mb-2 mb-md-0">
-			<label for="precio" class="form-label">Total</label>
-			<div class="input-group">
-				<span class="input-group-text">$</span>
-				<input type="text" id="#totalCarrito" class="form-control" disabled required />
-			</div>
-		</div>
     </div>
     <table class="table table-light table-hover mt-2 mb-3">
       <thead>
@@ -217,6 +236,29 @@ async function mostrarCarrito() {
 		}
 		i++;
 	}
+  contenido.innerHTML += `
+    
+    <div class="row mb-4">
+        <div class="col-12 col-md-4 mb-2 mb-md-0">
+            <label for="pago" class="form-label">Método de pago</label>
+            <select class="form-select" id="#tipoPago">
+                <option disabled selected>Seleccione un método de pago</option>
+                <option value="Crédito">Crédito</option>
+                <option value="Débito">Débito</option>
+            </select>
+        </div>
+      <div class="col-12 col-md-4 mb-2 mb-md-0">
+			<label for="precio" class="form-label">Total</label>
+        <div class="input-group">
+          <span class="input-group-text">$</span>
+          <input type="text" id="#totalCarrito" class="form-control" disabled required />
+        </div>
+		  </div>
+      <div class="col-12 col-md-4 mb-2 mb-md-0 align-self-end text-center d-grip">
+        <button class="btn btn-dark me-3" onclick="vaciarCarrito()">Vaciar carrito</button>
+        <button class="btn btn-warning" onclick="realizarCompra()">Realizar compra</button>
+      </div>
+    </div>`
   // Poner total correspondiente
   document.getElementById("#totalCarrito").value = total;
 }

@@ -29,7 +29,24 @@ export const validarJWT = (req, res, next)=>{
     try{
 
         jwt.verify(token, TOKENS);
+        next();
+    }catch(error){
+        console.log(error);
+       return res.status(401).send("Token no válido")
+    }
 
+}
+
+export const validarJWTCliente = (req, res, next)=>{
+    const token = req.cookies.Sesion;
+    if (!token){
+       return res.redirect('/login')
+    }
+
+    try{
+
+        const verificacion = jwt.verify(token, TOKENS);
+        req.body.id = verificacion.uid;
         next();
     }catch(error){
         console.log(error);
