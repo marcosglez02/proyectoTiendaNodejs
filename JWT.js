@@ -32,7 +32,7 @@ export const validarJWT = (req, res, next)=>{
         next();
     }catch(error){
         console.log(error);
-       return res.status(401).send("Token no válido")
+       return res.redirect('login')
     }
 
 }
