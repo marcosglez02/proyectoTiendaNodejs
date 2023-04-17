@@ -40,7 +40,7 @@ export const insertarProductos = async (req, res) => {
     const url = `${uploaded.public_id}.${uploaded.format}`; // Se obtienenla URL de la imagen en Cloudinary
     console.log(url)
     const nuevoProducto = {
-      idProducto: req.insertidProducto,
+      idProducto: req.body.idProducto,
       nombreProducto: req.body.nombreProducto,
       descripcion: req.body.descripcion,
       cantidad: parseInt(req.body.cantidad),
@@ -49,16 +49,25 @@ export const insertarProductos = async (req, res) => {
       estatus: 1,
       img: url,
     };
+  
     // Se insertan los campos
-    await pool.query("insert into productos set ?", [
-      nuevoProducto,
-    ]);
+    await pool.query("insert into productos set ?", [nuevoProducto]);
     // Se redirecciona a la página de productos
     res.redirect("/admin/productos");
+  
   } catch (error) {
-    console.log(error);
-    return res.status(400).send("Sucedio un error");
+    
+  
+  if (error.code === 'ER_DUP_ENTRY') {
+    // Si es así, la categoría ya existe en la base de datos.
+    // En este caso, puedes proporcionar un mensaje de error al usuario y redirigirlo a la página de inserción de categoría.
+    res.status(400).send('El producto ya existe en la base de datos.');
+  } else {
+    // Si se produce un error diferente, muestra un mensaje de error genérico y registra el error en el servidor.
+    console.error(error);
+    res.status(500).send('Se produjo un error al insertar el producto.');
   }
+}
 };
 //Función para desactivar los productos.
 export const eliminarProducto = async (req, res) => {
@@ -80,7 +89,10 @@ export const editarProducto = async(req,res)=>{
     const [categorias] = await pool.query("select * from categorias");
     res.render("admin/productosActu.html", { producto: resultado[0], categorias:categorias, titulo:"Editar Producto" });
 }
+
+
 export const actualizarProducto = async(req,res)=>{
+  try{
   const { idProducto } = req.params;
     let nuevoProducto = {
       nombreProducto: req.body.nombreProducto,
@@ -89,6 +101,7 @@ export const actualizarProducto = async(req,res)=>{
       precio: parseFloat(req.body.precio),
       idCategoria: parseInt(req.body.idCategoria),
     };
+    
     if(req.files!=null){
       // Extraemos el archivo de la request el nombre "file" debe coincidir con el valor del atributo name del input
       const file = req.files.img;
@@ -105,4 +118,17 @@ export const actualizarProducto = async(req,res)=>{
     }
     await pool.query("update productos set ? WHERE idProducto = ?", [nuevoProducto, idProducto]);
     res.redirect("/admin/productos");
-}
+  }catch (error) {
+    
+  
+    if (error.code === 'ER_DUP_ENTRY') {
+      // Si es así, la categoría ya existe en la base de datos.
+      // En este caso, puedes proporcionar un mensaje de error al usuario y redirigirlo a la página de inserción de categoría.
+      res.status(400).send('El producto ya existe en la base de datos.');
+    } else {
+      // Si se produce un error diferente, muestra un mensaje de error genérico y registra el error en el servidor.
+      console.error(error);
+      res.status(500).send('Se produjo un error al insertar el producto.');
+    }
+  }
+};
