@@ -7,7 +7,7 @@ router.get('/admin/login', (req,res)=>{
     res.render('admin/login.html')
 })
 
-router.post('/admin/productos', validarCredenciales)
+router.post('/admin/login', validarCredenciales)
 router.post('/admin/cerrarSesion', eliminarJWT)
 
 router.post('/registroUsuarios',registroUsuarios)
