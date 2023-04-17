@@ -9,7 +9,7 @@
                         <div class="form-group row mb-4">
                             <label for="txtEmail" class="col-12 col-form-label">Nombre de la categoría</label>
                             <div class="col-12">
-                                <input type="text" name="nombreCategoria" placeholder="Introduce el nombre" value="<%= categorias.nombreCategoria %>" class="form-control" required>
+                                <input type="text" id="nombreCategoria" name="nombreCategoria" placeholder="Introduce el nombre" value="<%= categorias.nombreCategoria %>" class="form-control" required>
                             </div>
                         </div>
                         <div class="text-end">
@@ -17,8 +17,8 @@
                                 <i class="fa-solid fa-arrow-left"></i>
                                 Regresar
                             </a>
-                            <button class="btn btn-primary m-2" type="submit">
-                                <i class="fa-solid fa-check"></i>
+                            <button onmouseover="validarDatos()" class="btn btn-primary m-2" type="submit">
+                                <i onmouseover="validarDatos()" class="fa-solid fa-check"></i>
                                 Actualizar
                             </button>
                         </div>
@@ -28,3 +28,22 @@
         </div>
     </div>
 </div>
+<script>
+    function validarDatos() {
+
+ 
+
+
+ var nombreCategoria = document.getElementById("nombreCategoria");
+ 
+
+ 
+ 
+ 
+ 
+ 
+ if(nombreCategoria.value === ""){
+   alert("Por favor ingrese nombre ");
+ }
+}
+</script>
