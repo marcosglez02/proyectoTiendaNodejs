@@ -40,7 +40,7 @@ export const insertarProductos = async (req, res) => {
     const url = `${uploaded.public_id}.${uploaded.format}`; // Se obtienenla URL de la imagen en Cloudinary
     console.log(url)
     const nuevoProducto = {
-      idProducto: req.body.idProducto,
+      idProducto: req.insertidProducto,
       nombreProducto: req.body.nombreProducto,
       descripcion: req.body.descripcion,
       cantidad: parseInt(req.body.cantidad),
