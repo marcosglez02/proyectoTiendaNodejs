@@ -7,28 +7,28 @@
                     <label for="" class="col-md-2 col-form-label">Precio</label>
                         <div class="col-md-10 input-group-text mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="number" name="precio" value="<%= producto.precio %>" placeholder="Introduce el precio del producto"
+                            <input type="number" name="precio" id="precio" value="<%= producto.precio %>" placeholder="Introduce el precio del producto"
                                 class="form-control" required>
                         </div>
                 </div>
                 <div class="form-group row mb-4">
                     <label for="txtNombre" class="col-md-2 col-form-label">Nombre del producto</label>
                     <div class="col-md-10">
-                        <input type="text" name="nombreProducto" value="<%= producto.nombreProducto %>" placeholder="Introduce el nombre"
+                        <input type="text" id="nombreProducto" name="nombreProducto" value="<%= producto.nombreProducto %>" placeholder="Introduce el nombre"
                             class="form-control" required>
                     </div>
                 </div>
                 <div class="form-group row mb-4">
                     <label for="txtcantidad" class="col-md-2 col-form-label">Cantidad</label>
                     <div class="col-md-10">
-                        <input type="number" name="cantidad" value="<%= producto.cantidad %>" placeholder="Introduce la cantidad"
+                        <input type="number" id="cantidad" name="cantidad" value="<%= producto.cantidad %>" placeholder="Introduce la cantidad"
                             class="form-control" required>
                     </div>
                 </div>
                 <div class="form-group row mb-4">
                     <label for="" class="col-md-2 col-form-label">Descripción</label>
                     <div class="col-md-10">
-                        <textarea class="form-control" name="descripcion" rows="2"
+                        <textarea class="form-control" name="descripcion" rows="2" id="descripcion"
                             placeholder="Introduce una descripción breve" maxlength="125" required><%= producto.descripcion %></textarea>
                     </div>
 
@@ -36,7 +36,7 @@
                 <div class="form-group row mb-4">
                     <label for="" class="col-md-2 col-form-label">Categoría</label>
                     <div class="col">
-                        <select name="idCategoria" id="" class="form-select">
+                        <select name="idCategoria" id="idCategoria" class="form-select">
                             <option value="0">Sin categoría</option>
                             <% if(categorias){%>
                                 <% for(let i=0;i<categorias.length;i++){%>
@@ -49,7 +49,7 @@
                 <div class="form-group row mb-2">
                     <label for="" class="col-md-2 col-form-label">Selecciona una imagen</label>
                     <div class="col-md-10">
-                        <input class="form-control" value="<%= producto.img %>" type="file" name="img" id="img" accept="image/png,image/jpeg">
+                        <input class="form-control" value="<%= producto.img %>" type="file" name="img" id="img"  id="img" accept="image/png,image/jpeg">
                     </div>
                 </div>
                 <div class="form-group row mb-2 justify-content-center">
@@ -64,11 +64,42 @@
                         <i class="fa-solid fa-arrow-left"></i>
                         Regresar
                     </a>
-                    <button class="btn btn-primary m-2" type="submit">
-                        <i class="fa-solid fa-check"></i>
+                    <button onmouseover="validarDatos()" class="btn btn-primary m-2" type="submit">
+                        <i onmouseover="validarDatos()" class="fa-solid fa-check"></i>
                         Actualizar
                     </button>
                 </div>
             </form>
     </div>
+    <script>
+        function validarDatos() {
+               var boton = document.getElementById("Boton");
+     
+   
+   
+     var precio = document.getElementById("precio");
+     var nombreProducto = document.getElementById("nombreProducto");
+     var cantidad = document.getElementById("cantidad");
+     var descripcion = document.getElementById("descripcion");
+     var idCategoria = document.getElementById("idCategoria");
+     var img = document.getElementById("img");
+    
+     
+     
+     
+     
+     
+     if(precio.value === ""){
+       alert("Por favor ingrese precio ");
+     }else if(nombreProducto.value === ""){
+       alert("Por favor ingrese nombre ");
+     }else if(cantidad.value === ""){
+       alert("Por favor ingrese cantidad ");
+     }else if(descripcion.value === ""){
+       alert("Por favor ingrese descripcion ");
+     }else if(idCategoria.value === "0"){
+       alert("Por favor ingrese categoria ");
+     }
+   }
+   </script>
 </div>

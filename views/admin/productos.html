@@ -8,10 +8,9 @@
                 <div class="form-group row mb-4">
                     <label for="" class="col-md-2 col-form-label">Precio</label>
                     <div class="col-md-10">
-                        
                         <div class="input-group-text mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="number" name="precio" placeholder="Introduce el precio del producto"
+                            <input id="precio" type="number" name="precio" placeholder="Introduce el precio del producto"
                                 class="form-control" required>
                         </div>
                     </div>
@@ -20,20 +19,20 @@
                     <label for="txtNombre" class="col-md-2 col-form-label">Nombre del producto</label>
                     <div class="col-md-10">
                         <input type="text" name="nombreProducto" placeholder="Introduce el nombre"
-                            class="form-control" required>
+                            id="nombreProducto"class="form-control" required>
                     </div>
                 </div>
                 <div class="form-group row mb-4">
                     <label for="txtcantidad" class="col-md-2 col-form-label">Cantidad</label>
                     <div class="col-md-10">
                         <input type="number" name="cantidad" placeholder="Introduce la cantidad"
-                            class="form-control" required>
+                            id="cantidad" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-group row mb-4">
                     <label for="" class="col-md-2 col-form-label">Descripción</label>
                     <div class="col-md-10">
-                        <textarea class="form-control" name="descripcion" rows="2"
+                        <textarea class="form-control" name="descripcion" rows="2" id="descripcion"
                             placeholder="Introduce una descripción breve" maxlength="125" required></textarea>
                     </div>
 
@@ -41,7 +40,7 @@
                 <div class="form-group row mb-4">
                     <label for="" class="col-md-2 col-form-label">Categoría</label>
                     <div class="col">
-                        <select name="idCategoria" id="" class="form-select">
+                        <select name="idCategoria" id="idCategoria" class="form-select">
                             <option value="0">Sin categoría</option>
                             <% if(categorias){%>
                                 <% for(let i=0;i<categorias.length;i++){%>
@@ -60,9 +59,9 @@
                 <div class="form-group row mb-2 justify-content-center">
                     <img class="w-50" id="imagenSeleccionada" src="">
                 </div>
-                <div class="text-end">
-                    <button class="btn btn-success m-2" type="submit">
-                        <i class="fa-solid fa-plus"></i>
+                <div class="text-end" >
+                    <button onmouseover="validarDatos()" class="btn btn-success m-2" type="submit">
+                        <i onmouseover="validarDatos()" class="fa-solid fa-plus" ></i>
                         Añadir producto
                     </button>
                     <button type="reset" class="btn btn-dark m-2 col-md-3">Limpiar</button>
@@ -119,7 +118,42 @@
     </table>
         <%} %>
 </div>
+<script>
+     function validarDatos() {
+            var boton = document.getElementById("Boton");
+  
 
+  var idProducto = document.getElementById("idProducto");
+  var precio = document.getElementById("precio");
+  var nombreProducto = document.getElementById("nombreProducto");
+  var cantidad = document.getElementById("cantidad");
+  var descripcion = document.getElementById("descripcion");
+  var idCategoria = document.getElementById("idCategoria");
+  var img = document.getElementById("img");
+ 
+  
+  
+  
+  
+  
+  if (idProducto.value === "" ) {
+    alert("Por favor ingrese un Codigo");
+ 
+  }else if(precio.value === ""){
+    alert("Por favor ingrese precio ");
+  }else if(nombreProducto.value === ""){
+    alert("Por favor ingrese nombreProducto ");
+  }else if(cantidad.value === ""){
+    alert("Por favor ingrese cantidad ");
+  }else if(descripcion.value === ""){
+    alert("Por favor ingrese descripcion ");
+  }else if(idCategoria.value === "0"){
+    alert("Por favor ingrese categoria ");
+  }else if(img.value == ""){
+    alert("Por favor ingrese img ");
+  }
+}
+</script>
 
 
 

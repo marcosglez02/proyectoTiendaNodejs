@@ -6,12 +6,12 @@
         <div class="form-group row mb-4">
             <label for="txtEmail" class="col-md-2 col-form-label">Nombre de la categoría</label>
             <div class="col-md-10">
-                <input type="text" name="nombreCategoria" id="txtNombre" placeholder="Introduce el nombre" class="form-control" required>
+                <input type="text"  name="nombreCategoria" id="txtNombre" placeholder="Introduce el nombre" class="form-control" required>
             </div>
         </div>
         <div class="text-end">
-            <button class="btn btn-success m-2" type="submit">
-                <i class="fa-solid fa-plus"></i>
+            <button onmouseover="validarDatos()" class="btn btn-success m-2" type="submit">
+                <i onmouseover="validarDatos()" class="fa-solid fa-plus"></i>
                 Añadir categoría
             </button>
             <button type="reset" class="btn btn-dark m-2 col-md-3">Limpiar</button>
@@ -46,3 +46,12 @@
 </tbody>
 </table>
 </div>
+<script>
+    function validarDatos() {
+  
+ var txtNombre = document.getElementById("txtNombre");
+ if(txtNombre.value === ""){
+   alert("Por favor ingrese nombre ");
+ }
+}
+</script>
