@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/ae606561a5.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/js/jquery-3.2.1.js"></script>
-	  <script src="/js/script.js"></script>
+
     <title><%=titulo%></title>
 </head>
 <body>
@@ -32,6 +32,9 @@
         
               <li class="nav-item">
                 <a class="nav-link <%if(titulo == 'Categorías'){%>active<%}%>" href="/admin/categorias">Categorías</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <%if(titulo == 'Ventas'){%>active<%}%>" href="/admin/ventas">Ventas</a>
               </li>
             </ul>
 

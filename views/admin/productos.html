@@ -1,5 +1,6 @@
 <%-include('partials/encabezado.html');%>
 <div class="container ">
+  
     <div class="row">
         <div class="col-md-10 offset-md-1 p-4 mt-2 text-dark pt-4 rounded">
 
@@ -60,8 +61,8 @@
                     <img class="w-50" id="imagenSeleccionada" src="">
                 </div>
                 <div class="text-end" >
-                    <button onmouseover="validarDatos()" class="btn btn-success m-2" type="submit">
-                        <i onmouseover="validarDatos()" class="fa-solid fa-plus" ></i>
+                    <button id="Boton" onclick="validarDatos()"name="Boton" class="btn btn-success m-2" type="submit">
+                        <i onclick="validarDatos()"class="fa-solid fa-plus" ></i>
                         Añadir producto
                     </button>
                     <button type="reset" class="btn btn-dark m-2 col-md-3">Limpiar</button>
@@ -136,13 +137,10 @@
   
   
   
-  if (idProducto.value === "" ) {
-    alert("Por favor ingrese un Codigo");
- 
-  }else if(precio.value === ""){
+   if(precio.value === ""){
     alert("Por favor ingrese precio ");
   }else if(nombreProducto.value === ""){
-    alert("Por favor ingrese nombreProducto ");
+    alert("Por favor ingrese nombre ");
   }else if(cantidad.value === ""){
     alert("Por favor ingrese cantidad ");
   }else if(descripcion.value === ""){

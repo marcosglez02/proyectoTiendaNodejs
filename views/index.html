@@ -66,7 +66,7 @@
                 <div class="row">
                     <h2 class="display-2 text-center mb-3">Productos destacados</h2>
                     <% if(productos){%>
-                        <% for(let i=0;i<productos.length;i++){%> %>
+                        <% for(let i=0;i<8;i++){%> %>
                             <%let estado = productos[i].estatus; %>
                             <%if(estado==1){%>
                                 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3">
@@ -98,4 +98,5 @@
         </div>
     </div>
 </div>
+<script src="../js/carrito.js"></script>
 <%-include('partials/piePagina.html');%>
