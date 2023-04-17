@@ -69,6 +69,8 @@ function cambiarCantidad(indice) {
 	} else if (carrito[indice].cantidad <= 0 || isNaN(carrito[indice].cantidad)) {
 		carrito[indice].cantidad = 1
 	}
+  // Poner total correspondiente
+	document.querySelector("#totalCarrito").value = calcularTotal(carrito);
 
 	document.querySelectorAll(".contador")[indice].setAttribute("value", carrito[indice].cantidad);
 	document.querySelectorAll(".contador")[indice].value = carrito[indice].cantidad;
@@ -197,6 +199,7 @@ async function mostrarCarrito() {
 					'Content-Type': 'application/x-www-form-urlencoded'
 				}
 			});
+      objeto.precio = producto.data.precio
       console.log(producto.data )
 			//if (typeof producto === "string") {
 			//	window.location.pathname = "/login";
@@ -251,7 +254,7 @@ async function mostrarCarrito() {
 			<label for="precio" class="form-label">Total</label>
         <div class="input-group">
           <span class="input-group-text">$</span>
-          <input type="text" id="#totalCarrito" class="form-control" disabled required />
+          <input type="text" id="totalCarrito" class="form-control" disabled required />
         </div>
 		  </div>
       <div class="col-12 col-md-4 mb-2 mb-md-0 align-self-end text-center d-grip">
@@ -260,5 +263,17 @@ async function mostrarCarrito() {
       </div>
     </div>`
   // Poner total correspondiente
-  document.getElementById("#totalCarrito").value = total;
+  contenido.querySelector("#totalCarrito").value = total;
+  localStorage.setItem("Carrito de compras",JSON.stringify(carrito))
 }
+
+function calcularTotal(carrito = '[]') {
+	let total = 0;
+
+	carrito.forEach(producto => {
+		total += parseFloat(producto.precio) * parseFloat(producto.cantidad);
+	});
+
+	return total;
+}
+
