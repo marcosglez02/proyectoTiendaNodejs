@@ -38,9 +38,11 @@ export const validarJWT = (req, res, next)=>{
 }
 
 export const validarJWTCliente = (req, res, next)=>{
+    console.log("Entró a la validación")
     const token = req.cookies.Sesion;
+    console.log(token)
     if (!token){
-       return res.redirect('/login')
+       return res.status(400).send("Inicie sesión para comprar")
     }
 
     try{
@@ -50,7 +52,7 @@ export const validarJWTCliente = (req, res, next)=>{
         next();
     }catch(error){
         console.log(error);
-       return res.status(401).send("Token no válido")
+       return res.status(400).send("Token no válido")
     }
 
 }

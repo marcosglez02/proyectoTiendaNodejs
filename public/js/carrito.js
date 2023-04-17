@@ -137,7 +137,7 @@ async function realizarCompra(){
     vaciarCarrito()
 
   }catch(error){
-    alert("Hubo un error" + error)
+    alert(error.response.data)
   }
   
 }
