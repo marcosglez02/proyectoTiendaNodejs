@@ -65,7 +65,7 @@
                         <i onclick="validarDatos()"class="fa-solid fa-plus" ></i>
                         Añadir producto
                     </button>
-                    <button type="reset" class="btn btn-dark m-2 col-md-3">Limpiar</button>
+                    <button type="reset" class="btn btn-dark m-2 col-md-3"><i class="fa-solid fa-eraser"></i> Limpiar</button>
                 </div>
             </form>
 
@@ -110,8 +110,8 @@
 							</a>
 							<% } %>
 
-                        <a href="/editarProducto/<%= productos[i].idProducto %>" class="btn btn-warning">
-                            <i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="/editarProducto/<%= productos[i].idProducto %>" class="btn btn-secondary">
+                            <i class="fa-solid fa-screwdriver-wrench"></i></a>
                     </td>
                 </tr>
             <% } %>

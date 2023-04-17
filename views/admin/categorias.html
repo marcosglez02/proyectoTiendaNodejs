@@ -15,7 +15,7 @@
                 <i  class="fa-solid fa-plus"></i>
                 Añadir categoría
             </button>
-            <button type="reset" class="btn btn-dark m-2 col-md-3">Limpiar</button>
+            <button type="reset" class="btn btn-dark m-2 col-md-3"><i class="fa-solid fa-eraser"></i> Limpiar</button>
         </div>
     </form>
     <h2 class="text-center mt-4">Todas las categorías</h2>
@@ -37,8 +37,8 @@
                     <a href="/eliminar/<%= categorias[i].idCategoria %>" class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i>
                         Eliminar</a>
-                    <a href="/editar/<%= categorias[i].idCategoria %>" class="btn btn-warning">
-                        <i class="fa-solid fa-pen-to-square"></i>
+                    <a href="/editar/<%= categorias[i].idCategoria %>" class="btn btn-secondary">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
                         Actualizar</a>
                 </td>
               </tr>

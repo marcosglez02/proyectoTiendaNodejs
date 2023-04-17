@@ -227,7 +227,7 @@ async function mostrarCarrito() {
 					<p class="mb-0 mt-2 p-0">Disponibles: <span class="disponibilidadItem">${producto.data.cantidad}</span></p>
 				</td>
 				<td class="text-center p-0">
-					<button class="btn btn-danger" onclick="(eliminarProducto(${i}))">eliminar</button>
+					<button class="btn btn-danger" onclick="(eliminarProducto(${i}))"><i class="fa-solid fa-delete-left"></i></button>
 				</td>
 			</tr>`;
 
@@ -258,8 +258,8 @@ async function mostrarCarrito() {
         </div>
 		  </div>
       <div class="col-12 col-md-4 mb-2 mb-md-0 align-self-end text-center d-grip">
-        <button class="btn btn-dark me-3" onclick="vaciarCarrito()">Vaciar carrito</button>
-        <button class="btn btn-warning" onclick="realizarCompra()">Realizar compra</button>
+        <button class="btn btn-dark me-3" onclick="vaciarCarrito()"><i class="fa-solid fa-trash"></i> Vaciar carrito</button>
+        <button class="btn btn-success" onclick="realizarCompra()"><i class="fa-solid fa-credit-card"></i> Realizar compra</button>
       </div>
     </div>`
   // Poner total correspondiente
